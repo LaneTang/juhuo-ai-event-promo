@@ -15,6 +15,8 @@ v1 output focuses on copywriting:
 - Xiaohongshu post copy.
 - QQ Channel, QQ group, and QQ campus wall reuse the Xiaohongshu copy and materials by default.
 
+v2 supports WeChat Official Account HTML layout as an explicit downstream task.
+
 Do not generate WeChat HTML, posters, cover images, or image assets by default. If the user explicitly requests those assets, treat them as separate downstream tasks after the copy package is fact-checked.
 
 ## Core Rule
@@ -36,6 +38,7 @@ If the user provides previous Juhuo posts or published drafts, use them as style
 7. Read platform references only for requested outputs:
    - WeChat: `references/wechat-copy-style.md`
    - Xiaohongshu and QQ reuse: `references/xiaohongshu-copy-style.md`
+   - WeChat HTML layout: `references/wechat-html-layout.md`
 8. Read `references/output-format.md`.
 9. Generate the requested package.
 10. Run a final consistency pass across all outputs:
@@ -70,6 +73,18 @@ If the user says "生成宣传包", "根据策划案写推文", or does not spec
 - Need Confirmation list, if any.
 
 If the user specifies one platform, generate only that platform's copy, but still perform fact extraction and quality gates first.
+
+## WeChat HTML Behavior
+
+Only generate WeChat HTML when the user explicitly asks for HTML, 公众号排版, or a copyable WeChat backend layout.
+
+Rules:
+
+- Base the HTML on fact-checked WeChat copy.
+- Read `references/wechat-html-layout.md`.
+- Choose a style family from that reference unless the user specifies one.
+- Keep the HTML static, mostly inline-style, and WeChat-compatible.
+- Do not use JavaScript, animation, external CSS, or remote assets.
 
 ## Writing Principles
 

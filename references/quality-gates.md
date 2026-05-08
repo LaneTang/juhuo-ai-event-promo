@@ -129,6 +129,19 @@ Use these checks only for platforms requested by the user.
 | Weak hierarchy | Readers cannot quickly scan sections, audience, rules, and agenda. | Headings are present but repetitive. | Use numbered sections, highlighted quotes, cards, or checklists as appropriate. |
 | Incompatible format request | User asks for WeChat HTML but output depends on animation, JS, external CSS, pseudo-elements, or remote assets. | Static HTML exists but styles are not mostly inline. | For HTML module, keep static, inline-style, WeChat-compatible layout. |
 
+### WeChat HTML Layout
+
+Use these checks when the user requests HTML or 微信公众号排版.
+
+| Check | BLOCKER | WARNING | Action |
+|---|---|---|---|
+| Dynamic dependency | HTML uses JavaScript, animation, external CSS, external fonts, or remote assets as required layout elements. | Minor unsupported styling may be stripped by WeChat. | Rewrite as static inline-style HTML. |
+| Style not selected | No clear style family is chosen. | Style is mixed but still coherent. | Choose from `wechat-html-layout.md`: handmade tech invitation, maker geek, or academic lab field notes. |
+| Over-narrow template | HTML repeats one fixed visual pattern and ignores event tone. | Components are coherent but too monotonous. | Vary element combinations within the selected style family. |
+| Weak mobile readability | Text is cramped, too small, too wide, or likely to overflow on mobile. | A few dense sections need more spacing. | Increase line-height, spacing, and responsive block layout. |
+| Fact drift | HTML changes or omits important approved facts. | Minor copy compression keeps meaning. | Align HTML with fact-checked WeChat copy. |
+| Placeholder hidden | QR/location/registration placeholders are buried or styled as final facts. | Placeholder is visible but not listed in notes. | Make placeholders obvious and include copy/paste notes. |
+
 ### Xiaohongshu
 
 | Check | BLOCKER | WARNING | Action |

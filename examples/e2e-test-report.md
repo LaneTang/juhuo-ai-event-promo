@@ -42,7 +42,7 @@ The end-to-end run exposed one useful design issue that has now been addressed:
 
 - The skill can complete `.docx` extraction with lightweight OOXML parsing.
 - Old `.doc` files need Word COM, LibreOffice, antiword, or another converter.
-- The skill now includes `scripts/extract_plan_text.py`, which supports `.docx`, `.docm`, `.doc`, `.wps`, `.wpt`, and `.pdf` with OOXML, optional PDF libraries, and Word COM fallback.
+- The skill now includes `scripts/extract_plan_text.py`, which supports `.docx`, `.docm`, `.doc`, `.wps`, `.wpt`, and `.pdf` with OOXML, optional PDF libraries, optional `olefile` fallback, external converters, and Word COM fallback.
 
 Recommended follow-up:
 

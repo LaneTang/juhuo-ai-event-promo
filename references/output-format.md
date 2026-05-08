@@ -56,6 +56,34 @@ The requested copy.
 Only if needed.
 ```
 
+## WeChat HTML Output
+
+When the user explicitly requests WeChat HTML layout, output:
+
+````markdown
+## Fact Check Summary
+
+Only facts and risks relevant to the WeChat article.
+
+## Quality Gate Report
+
+Include copy and HTML compatibility gates.
+
+## WeChat HTML Style Choice
+
+Chosen style family and why.
+
+## 微信公众号 HTML
+
+```html
+...
+```
+
+## Copy/Paste Notes
+
+Static, inline-style based, no JS/animation/external CSS. List QR placeholders or facts that still need confirmation.
+````
+
 ## Placeholder Rules
 
 Use clear placeholders only when the user wants a draft despite missing facts.
