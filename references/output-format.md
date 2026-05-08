@@ -69,6 +69,10 @@ Only facts and risks relevant to the WeChat article.
 
 Include copy and HTML compatibility gates.
 
+## Frontend Design Pass
+
+Purpose, audience, tone, aesthetic direction, hierarchy, memorable motif, and component system. This pass must happen before HTML generation.
+
 ## WeChat HTML Style Choice
 
 Chosen style family and why.

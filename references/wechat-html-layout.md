@@ -8,6 +8,19 @@ This is a v2 downstream module. Do not use it before the event facts and WeChat 
 
 Generate static WeChat-compatible HTML that still looks good after animations and scripts are stripped.
 
+Before writing HTML, apply the `frontend-design` skill's design principles as a design pass. If `frontend-design` is not available in the current Codex environment, report a v2 blocker instead of generating WeChat HTML.
+
+The design pass must decide:
+
+- purpose: what the article needs readers to understand or do
+- audience: who is reading and what tone makes them feel invited
+- aesthetic direction: a clear visual point of view, not a generic template
+- hierarchy: what appears first, what becomes a highlight, what becomes supporting detail
+- memorable motif: the one visual idea readers should remember
+- component system: title block, quote/highlight, section heading, cards, checklist, timeline, info block, QR placeholder, closing CTA
+
+Then translate that design pass into WeChat-compatible static HTML. Keep the visual intent, but discard incompatible frontend techniques.
+
 Allowed:
 
 - semantic `section`, `p`, `span`, `strong`, `br`, `img` placeholders
@@ -33,6 +46,10 @@ Avoid:
 When generating v2 HTML, output:
 
 ````markdown
+## Frontend Design Pass
+
+Purpose, audience, tone, aesthetic direction, hierarchy, memorable motif, and component system.
+
 ## WeChat HTML Style Choice
 
 Chosen style and reason.
@@ -74,6 +91,8 @@ Body text defaults:
 ## Style Families
 
 Choose one style family based on the event tone, user request, or previous Juhuo style. Do not lock the design to a single fixed template. Within each family, vary the element combinations while preserving the overall mood.
+
+The style family is not the design by itself. After choosing a family, still create a frontend-design pass that adapts the family to the specific event, copy, audience, and factual constraints.
 
 ### 1. Campus AI Community Handmade Tech Invitation
 
@@ -182,6 +201,8 @@ For event invitation HTML, include these components when the copy contains them:
 
 ## Component Patterns
 
+These patterns are starting points only. Do not mechanically repeat them. Use them as WeChat-compatible building blocks after the frontend-design pass has defined the page rhythm and visual motif.
+
 ### Title Block
 
 Use a strong first viewport signal. The title must be readable on mobile.
@@ -231,6 +252,9 @@ Use a strong first viewport signal. The title must be readable on mobile.
 
 Before delivering HTML, verify:
 
+- A frontend-design pass is present before the HTML.
+- The design pass names a specific visual concept beyond the selected style family.
+- The HTML reflects the design pass through hierarchy, spacing, recurring motifs, and component choices.
 - The article remains readable if all dynamic behavior is removed.
 - No `script`, `style` block, `link rel`, `@keyframes`, `animation`, or external asset is required.
 - Important text is real text, not hidden in images.

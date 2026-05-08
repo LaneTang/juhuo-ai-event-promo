@@ -136,7 +136,10 @@ Use these checks when the user requests HTML or 微信公众号排版.
 | Check | BLOCKER | WARNING | Action |
 |---|---|---|---|
 | Dynamic dependency | HTML uses JavaScript, animation, external CSS, external fonts, or remote assets as required layout elements. | Minor unsupported styling may be stripped by WeChat. | Rewrite as static inline-style HTML. |
+| `frontend-design` unavailable | The current environment cannot use the `frontend-design` skill. | N/A | Stop v2 HTML generation and ask the user to install/enable `frontend-design`. |
+| Missing frontend-design pass | HTML is generated directly without a prior design pass using `frontend-design` principles. | Design pass exists but is too generic to guide layout. | Add a design pass covering purpose, audience, tone, aesthetic direction, hierarchy, memorable motif, and component system before writing HTML. |
 | Style not selected | No clear style family is chosen. | Style is mixed but still coherent. | Choose from `wechat-html-layout.md`: handmade tech invitation, maker geek, or academic lab field notes. |
+| Generic AI aesthetics | Layout looks like interchangeable cards with weak hierarchy, timid palette, or no memorable visual idea. | Design is serviceable but not distinctive. | Rework with a clearer visual point of view, stronger first screen, recurring motif, and better spacing rhythm. |
 | Over-narrow template | HTML repeats one fixed visual pattern and ignores event tone. | Components are coherent but too monotonous. | Vary element combinations within the selected style family. |
 | Weak mobile readability | Text is cramped, too small, too wide, or likely to overflow on mobile. | A few dense sections need more spacing. | Increase line-height, spacing, and responsive block layout. |
 | Fact drift | HTML changes or omits important approved facts. | Minor copy compression keeps meaning. | Align HTML with fact-checked WeChat copy. |
