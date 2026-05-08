@@ -6,6 +6,28 @@ Use this reference when generating WeChat Official Account copy for Juhuo AI eve
 
 The WeChat article should feel like a campus AI community invitation, not an internal activity plan. It should be complete enough for public release, warm enough for students to want to come, and structured enough for readers to scan.
 
+## Publication Standard
+
+Default WeChat output must be a publication-ready article, not a compressed outline.
+
+Target length:
+
+- For a normal event invitation: 1200-1800 Chinese characters.
+- If the plan has rich background, audience, agenda, and rules: 1500-2200 Chinese characters.
+- Do not produce a short 500-800 character summary unless the user explicitly asks for a short version.
+
+Minimum content requirements:
+
+- Use most of the public/adaptable facts from the fact table, not only the title/time/CTA.
+- Include the event background and why the event exists.
+- Explain the core activity concept in plain student-facing language.
+- Expand each participant type into a short human invitation, not one bullet.
+- Include roadshow/recruitment/rule details when the plan provides them.
+- Include a readable public agenda with enough context for each segment.
+- Include time, location status, registration method, and Need Confirmation items if any.
+
+If the generated article looks like an outline, event notice, or abstract, revise it before delivery.
+
 ## Recommended Structure
 
 Use this structure by default:
@@ -17,7 +39,7 @@ Opening visual line or subtitle, optional.
 
 ## 导语
 
-Warm invitation. Explain why this event exists and why now.
+Warm invitation. Explain why this event exists and why now. Use 2-4 paragraphs when the plan has enough background.
 
 Highlighted sentence / golden line.
 
@@ -32,13 +54,19 @@ Use friendly participant cards or short blocks:
 - 自由组队成员
 - 普通观众 / 兴趣小白
 
+Each participant category should usually be 80-150 Chinese characters, with concrete reasons to come and what they can do at the event.
+
 ## 03 路演 / 报名规则
 
 Use checklist language. Keep it clear, not stern.
 
+If the plan provides selection rules, max groups, AI relevance rules, or顺延机制, include them in public-friendly wording.
+
 ## 04 活动流程
 
 Use timeline or concise agenda.
+
+Each agenda item should include a one-sentence explanation, not only the segment name.
 
 ## 时间与地点
 
@@ -144,3 +172,21 @@ Do not replace tentative facts with remembered or previous-event locations unles
 
 This reference is for copy only. If the user asks for WeChat HTML layout, use static WeChat-compatible HTML with mostly inline styles. Do not rely on animation, JavaScript, external CSS, pseudo-elements, or remote assets.
 
+## Common Failure: Too Short
+
+Do not output a WeChat article like this:
+
+```markdown
+## 01 活动是什么
+一句话解释。
+
+## 02 适合谁来
+- 人群 A
+- 人群 B
+
+## 03 现场会发生什么
+- 环节 A
+- 环节 B
+```
+
+This is only an outline. Expand it into a complete invitation with narrative, scene, audience motivation, rules, agenda, and CTA.

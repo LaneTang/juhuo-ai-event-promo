@@ -73,6 +73,7 @@ If the user specifies one platform, generate only that platform's copy, but stil
 
 ## Writing Principles
 
+- Default copy should be publication-ready, not a compressed summary. If the plan has enough public information, produce a complete article/post that the user can publish after filling only confirmed missing facts such as venue or QR code.
 - Keep facts stable across platforms.
 - Preserve uncertainty instead of inventing confirmations.
 - Separate style references from fact sources.

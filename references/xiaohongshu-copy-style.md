@@ -6,6 +6,27 @@ Use this reference when generating Xiaohongshu copy for Juhuo AI event promotion
 
 The Xiaohongshu post should be short, friendly, searchable, and easy to repost. It should feel like a campus activity note from a real student community, preferably like a senior student inviting juniors and peers to come hang out, learn, and meet people, not a formal announcement.
 
+## Publication Standard
+
+Default Xiaohongshu output should be publishable without rewriting.
+
+Target length:
+
+- 350-650 Chinese characters for normal event promotion.
+- 220-350 Chinese characters only when the user asks for "更短版".
+
+The post should have a recognizable style, not just a neutral information card. It should sound like an active campus AI community account inviting people into a real scene.
+
+Minimum content requirements:
+
+- A hook with emotional/social pull, not only "活动来了".
+- 2-4 lines of warm setup before bullets.
+- 4-6 lively highlight bullets.
+- A friendly "适合谁来" section.
+- Time/location/registration facts.
+- A closing line with社群感, e.g. "来现场坐坐", "先来听听", "说不定就遇到同频队友".
+- Hashtags that match the event.
+
 ## Recommended Structure
 
 ```markdown
@@ -55,6 +76,8 @@ Prefer:
 - Slightly lively but not over-cute.
 - Senior-student / campus community invitation energy.
 - Warm phrases such as "来现场坐坐", "先来听听", "不用准备得很正式", "没想清楚也没关系".
+- Scene-setting phrases such as "周日下午", "带着问题来", "先围观一下也可以", "看看大家都在折腾什么".
+- Community phrases such as "同频的人", "一起支招", "现场聊开", "说不定就能组上队".
 - Concrete verbs: 来看、来聊、来组队、来旁听、来认识同频的人.
 
 Avoid:
@@ -63,6 +86,7 @@ Avoid:
 - Too many abstract nouns.
 - Overly official tone.
 - Activity notice tone that only lists facts.
+- Overly compressed copy that reads like a WeChat summary.
 - Excessive emoji density.
 - Selling-like claims.
 
@@ -75,6 +99,8 @@ Good first lines:
 - `没有项目也可以来，旁听、组队、认识同频的人都欢迎。`
 - `想试试 AI 创业，但还没想好怎么开始？`
 - `这周日，学长学姐喊你来现场坐坐。`
+- `手里有项目/技能/一点点好奇心的同学，这场可以来。`
+- `来围观几个真实项目，看看 AI 到底能怎么接进去。`
 
 ## Required Info
 
@@ -120,3 +146,12 @@ Optional light adaptations:
 - For QQ Channel, keep hashtags or convert them into topic labels.
 
 Do not create a separate QQ copy unless the user explicitly asks.
+
+## Common Failure: Too Neutral
+
+If the post only says "活动主题 + 环节 + 时间地点", it is not ready. Add:
+
+- a more human first line
+- one concrete campus scene
+- lower-pressure invitation wording
+- a warmer closing line
