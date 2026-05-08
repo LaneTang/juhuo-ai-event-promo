@@ -87,6 +87,8 @@ Rules:
 - Before writing HTML, perform a frontend-design pass: define purpose, audience, tone, aesthetic direction, hierarchy, memorable visual motif, and component system.
 - Translate the frontend-design pass into WeChat-compatible static HTML. Keep the design ambition, but remove incompatible implementation techniques.
 - Choose a style family from that reference unless the user specifies one.
+- When generating multiple HTML style versions, make the versions structurally distinct. Do not deliver three outputs that only change palette, border colors, headings, or label text.
+- For multi-style HTML output, run the style-drift gate: compare first screen, heading system, highlighted sentence, audience blocks, rules/checklist, agenda/timeline, info block, closing CTA, and QR placeholder treatment. If those areas are mostly identical, redesign before delivering.
 - Do not output a generic template. The HTML should show intentional typography hierarchy, spacing rhythm, color discipline, section contrast, and a recognizable visual point of view.
 - Keep the HTML static, mostly inline-style, and WeChat-compatible.
 - Do not use JavaScript, animation, external CSS, or remote assets.

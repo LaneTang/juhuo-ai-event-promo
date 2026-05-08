@@ -88,6 +88,14 @@ Chosen style family and why.
 Static, inline-style based, no JS/animation/external CSS. List QR placeholders or facts that still need confirmation.
 ````
 
+For multi-style HTML comparison, repeat `Frontend Design Pass`, `WeChat HTML Style Choice`, `微信公众号 HTML`, and `Copy/Paste Notes` for each style version, then add:
+
+```markdown
+## Style Difference Summary
+
+Compare how the versions differ in first screen, heading system, highlighted sentence, audience cards, rules block, agenda block, info block, and closing CTA. If the versions only differ by colors or labels, redesign before delivery.
+```
+
 ## Placeholder Rules
 
 Use clear placeholders only when the user wants a draft despite missing facts.

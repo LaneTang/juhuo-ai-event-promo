@@ -94,6 +94,21 @@ Choose one style family based on the event tone, user request, or previous Juhuo
 
 The style family is not the design by itself. After choosing a family, still create a frontend-design pass that adapts the family to the specific event, copy, audience, and factual constraints.
 
+When the user asks for multiple style versions, the versions must differ in visible structure, not only in colors or labels. Before writing HTML, define a distinct visual motif and component system for each version.
+
+Required differentiation points for multi-style comparisons:
+
+- first screen/title block
+- heading system
+- highlighted quote or core sentence treatment
+- audience/participant blocks
+- rules/checklist block
+- agenda/timeline block
+- time-location-registration block
+- closing CTA and QR placeholder
+
+If two versions share the same layout skeleton with only palette, wording labels, border colors, or icon-like text changed, fail the style-drift check and redesign one version before delivering.
+
 ### 1. Campus AI Community Handmade Tech Invitation
 
 Use when the event is friendly, student-facing, invitation-like, low-pressure, or community-driven.
@@ -255,6 +270,8 @@ Before delivering HTML, verify:
 - A frontend-design pass is present before the HTML.
 - The design pass names a specific visual concept beyond the selected style family.
 - The HTML reflects the design pass through hierarchy, spacing, recurring motifs, and component choices.
+- For multi-style output, each version has a different motif and component system, not just different colors.
+- For multi-style output, include a short style-difference summary comparing first screen, headings, cards, agenda, info block, and CTA.
 - The article remains readable if all dynamic behavior is removed.
 - No `script`, `style` block, `link rel`, `@keyframes`, `animation`, or external asset is required.
 - Important text is real text, not hidden in images.
