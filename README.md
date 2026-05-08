@@ -85,7 +85,21 @@ After installation, ask Codex to use the skill on an uploaded event plan.
 
 For `.docx` and `.docm` plans, the extraction script uses Python standard library modules only.
 
-For legacy `.doc`, `.wps`, or `.wpt` files on Windows, the script uses Word-compatible COM automation. That requires:
+For legacy `.doc`, `.wps`, or `.wpt` files, the script tries several methods:
+
+1. LibreOffice / `soffice`
+2. `pandoc`
+3. `antiword` / `catdoc`
+4. Python `olefile` string fallback
+5. Word-compatible COM automation on Windows
+
+Recommended Python fallback for old `.doc` files:
+
+```powershell
+python -m pip install olefile
+```
+
+Word COM fallback requires:
 
 - Windows
 - Microsoft Word or another compatible application that can open the document
@@ -102,6 +116,8 @@ PDF support is best-effort in v1. For better PDF text extraction, install `pypdf
 ```powershell
 python -m pip install pypdf
 ```
+
+If `.doc` extraction fails with a login-session error such as `指定的登录会话不存在`, install `olefile`, convert the file to `.docx`, install LibreOffice, or paste the plan text directly.
 
 See [runtime-requirements.md](references/runtime-requirements.md) for details.
 
@@ -172,4 +188,3 @@ Known limitations:
 - `.wps` and `.pdf` support paths exist but have not been validated with many real-world samples
 - image/poster/HTML generation is intentionally out of default scope
 - public copy quality still benefits from human review before posting
-

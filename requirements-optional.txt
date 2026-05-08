@@ -3,4 +3,4 @@
 
 pywin32; platform_system == "Windows"
 pypdf>=4
-
+olefile>=0.47

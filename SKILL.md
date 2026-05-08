@@ -54,7 +54,7 @@ If the user provides previous Juhuo posts or published drafts, use them as style
   - Supported types: `.docx`, `.docm`, `.doc`, `.wps`, `.wpt`, `.pdf`.
 - Read `references/runtime-requirements.md` when installing the skill on a new machine, debugging document extraction, or preparing a GitHub-based forward test.
 - For `.docx`, extract text through normal document tooling or OOXML text extraction.
-- For legacy `.doc`, use Word/WPS/LibreOffice conversion or Word COM text extraction when available. Mark this as a source-readiness warning because table structure may be flattened.
+- For legacy `.doc`, `.wps`, and `.wpt`, try external converters before Word COM when possible. Word COM may fail in non-interactive Codex environments with login-session errors. If all extraction methods fail, ask the user for a `.docx` version or pasted text instead of guessing.
 - For `.pdf`, use a PDF text parser when available; otherwise use the script's Word COM fallback on Windows.
 - Do not keep converter scratch files inside the final skill unless they are intentional examples or scripts.
 
