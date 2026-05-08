@@ -1,0 +1,6 @@
+# Optional dependencies for scripts/extract_plan_text.py
+# .docx extraction uses only Python standard library modules.
+
+pywin32; platform_system == "Windows"
+pypdf>=4
+

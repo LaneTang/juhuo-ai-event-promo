@@ -52,6 +52,7 @@ If the user provides previous Juhuo posts or published drafts, use them as style
 - Prefer `scripts/extract_plan_text.py` when the input is a WPS, Word, or PDF file.
   - Example: `python scripts/extract_plan_text.py <plan.docx> --out extracted-plan.txt`
   - Supported types: `.docx`, `.docm`, `.doc`, `.wps`, `.wpt`, `.pdf`.
+- Read `references/runtime-requirements.md` when installing the skill on a new machine, debugging document extraction, or preparing a GitHub-based forward test.
 - For `.docx`, extract text through normal document tooling or OOXML text extraction.
 - For legacy `.doc`, use Word/WPS/LibreOffice conversion or Word COM text extraction when available. Mark this as a source-readiness warning because table structure may be flattened.
 - For `.pdf`, use a PDF text parser when available; otherwise use the script's Word COM fallback on Windows.
