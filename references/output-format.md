@@ -73,6 +73,14 @@ Include copy and HTML compatibility gates.
 
 Purpose, audience, tone, bold aesthetic direction, differentiation, memorable motif, information hierarchy, component system, and compatibility translation. This internal WeChat frontend design pass must happen before HTML generation.
 
+## Article-to-HTML Mapping
+
+Map each major unit of the complete WeChat article to an HTML component. Do not map from the fact table.
+
+## Article Coverage Check
+
+Report source article units, HTML-covered units, omitted units with reasons, and PASS/FAIL.
+
 ## Component Blueprint
 
 Selected blueprint and concrete component decisions for first screen, intro, golden sentence, headings, participant blocks, rules/checklist, agenda/timeline, info block, QR placeholder, and CTA.
@@ -100,7 +108,7 @@ Chosen style family and why.
 Static, inline-style based, no JS/animation/external CSS. List QR placeholders or facts that still need confirmation.
 ````
 
-For multi-style HTML comparison, repeat `Frontend Design Plan`, `Component Blueprint`, `Frontend Design Capability Mapping`, `WeChat Compatibility Translation`, `WeChat HTML Style Choice`, `微信公众号 HTML`, and `Copy/Paste Notes` for each style version, then add:
+For multi-style HTML comparison, repeat `Frontend Design Plan`, `Article-to-HTML Mapping`, `Article Coverage Check`, `Component Blueprint`, `Frontend Design Capability Mapping`, `WeChat Compatibility Translation`, `WeChat HTML Style Choice`, `微信公众号 HTML`, and `Copy/Paste Notes` for each style version, then add:
 
 ```markdown
 ## Style Difference Summary

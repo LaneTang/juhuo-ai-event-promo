@@ -39,7 +39,7 @@ If the user provides previous Juhuo posts or published drafts, use them as style
    - WeChat: `references/wechat-copy-style.md` and `references/wechat-golden-copy-style.md`
    - Xiaohongshu and QQ reuse: `references/xiaohongshu-copy-style.md`
    - WeChat HTML layout: `references/wechat-html-layout.md`
-     - When generating WeChat HTML, also read `references/frontend-design-core.md`, `references/wechat-frontend-design.md`, and `references/wechat-component-blueprints.md` before writing HTML.
+     - When generating WeChat HTML, also read `references/article-to-html-mapping.md`, `references/frontend-design-core.md`, `references/wechat-frontend-design.md`, and `references/wechat-component-blueprints.md` before writing HTML.
 8. Read `references/output-format.md`.
 9. Generate the requested package.
 10. Run a final consistency pass across all outputs:
@@ -95,10 +95,13 @@ Rules:
 
 - Base the HTML on fact-checked WeChat copy.
 - Read `references/wechat-html-layout.md`.
+- Read `references/article-to-html-mapping.md`.
 - Read `references/frontend-design-core.md`.
 - Read `references/wechat-frontend-design.md`.
 - Read `references/wechat-component-blueprints.md`.
 - Use the full mature WeChat article as the HTML source. Do not generate v2 HTML from a compressed summary, fact table, or shortened copy.
+- Before writing HTML, produce `Article-to-HTML Mapping` and `Article Coverage Check`. Every major article unit must map to an HTML component.
+- If coverage is incomplete, revise the HTML before delivery. Do not summarize the article to make layout easier.
 - Before writing HTML, select a component blueprint from `references/wechat-component-blueprints.md` for each requested style version.
 - Before writing HTML, perform the internal WeChat frontend design pass: define purpose, audience, tone, bold aesthetic direction, differentiation, memorable motif, information hierarchy, component system, and compatibility translation.
 - Output a `Frontend Design Plan`.

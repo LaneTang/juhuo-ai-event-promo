@@ -4,7 +4,7 @@ Use this reference when the user explicitly asks for WeChat Official Account HTM
 
 This is a v2 downstream module. Do not use it before the event facts and WeChat copy have passed quality gates.
 
-Required companion references: read `references/frontend-design-core.md`, `references/wechat-frontend-design.md`, and `references/wechat-component-blueprints.md` before writing any HTML.
+Required companion references: read `references/article-to-html-mapping.md`, `references/frontend-design-core.md`, `references/wechat-frontend-design.md`, and `references/wechat-component-blueprints.md` before writing any HTML.
 
 ## Core Rule
 
@@ -12,7 +12,9 @@ Generate static WeChat-compatible HTML that still looks good after animations an
 
 Before writing HTML, apply the full internal frontend-design flow from `references/frontend-design-core.md`, then translate it through `references/wechat-frontend-design.md` and the selected component blueprint from `references/wechat-component-blueprints.md`. Do not depend on an external `frontend-design` skill being installed.
 
-Use the complete WeChat article as source material. Do not base HTML on a compressed summary.
+Use the complete WeChat article as source material. Do not base HTML on a compressed summary, fact table, or shortened rewrite.
+
+Before design and HTML, produce `Article-to-HTML Mapping` and `Article Coverage Check` from `references/article-to-html-mapping.md`. If major article units are missing from the HTML, fail the coverage check and revise before delivery.
 
 The design pass must decide:
 
@@ -54,6 +56,14 @@ When generating v2 HTML, output:
 ## Frontend Design Plan
 
 Purpose, audience, tone, bold aesthetic direction, differentiation, memorable motif, information hierarchy, component system, and compatibility translation.
+
+## Article-to-HTML Mapping
+
+Each major WeChat article unit mapped to a concrete HTML component.
+
+## Article Coverage Check
+
+Source article units, covered units, omitted units with reasons, and PASS/FAIL.
 
 ## Component Blueprint
 
@@ -286,6 +296,8 @@ Before delivering HTML, verify:
 
 - A Frontend Design Plan is present before the HTML.
 - The HTML is based on complete WeChat article copy, not a short summary.
+- Article-to-HTML Mapping is present before the HTML.
+- Article Coverage Check is present before the HTML and passes.
 - A Component Blueprint is present before the HTML.
 - Frontend Design Capability Mapping is present before the HTML.
 - WeChat Compatibility Translation is present before the HTML.
