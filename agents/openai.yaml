@@ -1,4 +1,4 @@
 interface:
   display_name: "炬火活动宣传包"
-  short_description: "生成公众号推文、HTML排版、社媒文案与视觉prompt"
-  default_prompt: "请基于这份活动策划案，生成成熟微信公众号推文、小红书文案；如需公众号HTML排版，必须将完整微信推文原样排版成HTML；如需视觉物料，请先输出图片生成prompt并等待确认。"
+  short_description: "生成公众号推文、HTML排版、社媒文案与封面海报prompt"
+  default_prompt: "请基于这份活动策划案，生成成熟微信公众号推文、小红书文案；如需公众号HTML排版，必须将完整微信推文原样排版成HTML；如需视觉物料，只输出公众号封面图和小红书海报图prompt，并等待确认后再生成图片。"

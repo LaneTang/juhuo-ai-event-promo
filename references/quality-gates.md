@@ -194,7 +194,9 @@ Use these checks when the user requests cover images, posters, visual materials,
 | Prompt before facts | Visual prompt is generated before fact table and publicity checks. | Prompt uses copy tone but misses some confirmed basics. | Run fact checks first and align prompt with confirmed package. |
 | Unconfirmed visual facts | Prompt shows tentative venue, guest, co-organizer, QR code, sponsor, or exact location as confirmed. | Prompt includes a tentative fact with weak wording. | Remove it or mark it as placeholder/uncertain. |
 | Text overload | Prompt asks for long paragraphs, full agenda, many hashtags, or too many text blocks inside the image. | Prompt includes more than one title/subtitle/info line. | Shorten image text; keep details in copy, not image. |
-| Wrong platform shape | WeChat cover prompt is vertical, or Xiaohongshu poster prompt is horizontal by default. | Aspect ratio is missing. | Use horizontal for WeChat cover and vertical for Xiaohongshu poster. |
+| Wrong platform shape | WeChat cover prompt is vertical, Xiaohongshu poster prompt is horizontal by default, or requested visual package creates unrelated image types. | Aspect ratio is missing. | Use WeChat cover `900 x 383 px / 2.35:1` and Xiaohongshu poster `1242 x 1660 px / 3:4`. |
+| Missing size and safe area | WeChat/Xiaohongshu prompt lacks pixel size, aspect ratio, or safe text area. | Size exists but safe area is vague. | Add platform size, aspect ratio, and safe text area before delivery. |
+| Scope creep | Visual output includes QQ posters, banners, story images, thumbnails, or multi-size exports by default. | Extra options are suggested too strongly. | Keep default v3.1 output to WeChat cover and Xiaohongshu poster only. |
 | QQ separate material by default | A separate QQ visual prompt is generated without explicit request. | QQ reuse note is unclear. | Default to reusing WeChat/Xiaohongshu visuals. |
 | Image generated without confirmation | Tool/image generation is called before the user confirms a prompt. | Confirmation wording is vague. | Stop at prompts and ask which one to generate. |
 

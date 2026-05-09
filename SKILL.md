@@ -17,9 +17,9 @@ v1 output focuses on mature, publishable copywriting:
 
 v2 supports WeChat Official Account HTML layout as an explicit downstream task.
 
-v3 supports visual material prompts as an explicit downstream task.
+v3 supports visual material prompts as an explicit downstream task. v3.1 narrows the default visual scope to exactly two deliverables: WeChat Official Account cover prompt and Xiaohongshu poster prompt.
 
-Do not generate WeChat HTML, posters, cover images, or image assets by default. If the user explicitly requests those assets, treat them as separate downstream tasks after the copy package is fact-checked. For v3, output image-generation prompts first and ask for confirmation before generating images.
+Do not generate WeChat HTML, posters, cover images, or image assets by default. If the user explicitly requests those assets, treat them as separate downstream tasks after the copy package is fact-checked. For v3, output image-generation prompts first and ask for confirmation before generating images. When the user asks for visual materials without naming a platform, output only the WeChat cover and Xiaohongshu poster prompts.
 
 ## Core Rule
 
@@ -127,8 +127,12 @@ Rules:
 
 - Read `references/visual-prompt-style.md`.
 - Base prompts on the fact-checked promotion package, not raw assumptions.
-- Output prompts for requested platforms. If the user asks for a full visual package, output WeChat Cover Prompt and Xiaohongshu Poster Prompt.
+- Output prompts for requested platforms.
+- If the user asks for a full visual package, visual materials, poster/cover, 配图, or v3 outputs without naming a platform, output exactly two prompts: WeChat Cover Prompt and Xiaohongshu Poster Prompt.
+- WeChat Cover Prompt must specify `900 x 383 px`, `2.35:1 horizontal`, and a safe text area.
+- Xiaohongshu Poster Prompt must specify `1242 x 1660 px`, `3:4 vertical`, and a safe text area.
 - QQ Channel, QQ group, and QQ campus wall reuse WeChat or Xiaohongshu visuals by default; do not create separate QQ prompts unless explicitly requested.
+- Do not create extra banners, thumbnails, story images, QQ posters, or multi-size export prompts unless the user explicitly asks.
 - Do not call image generation immediately. Ask for confirmation after presenting prompts.
 - If the user confirms a specific prompt, then image generation can be used as a separate action.
 

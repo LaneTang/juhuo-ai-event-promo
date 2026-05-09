@@ -151,9 +151,12 @@ Facts that may appear in images, plus tentative/missing facts that must not be s
 ## WeChat Cover Prompt
 
 **Use case:** WeChat Official Account cover image
+**Size:** 900 x 383 px
 **Aspect ratio:** 2.35:1 horizontal
+**Safe area:** central 80% width and central 76% height
 **Main text:** ...
 **Secondary text:** ...
+**Optional time text:** ...
 **Visual direction:** ...
 **Composition:** ...
 **Color palette:** ...
@@ -163,7 +166,9 @@ Facts that may appear in images, plus tentative/missing facts that must not be s
 ## Xiaohongshu Poster Prompt
 
 **Use case:** Xiaohongshu vertical poster
-**Aspect ratio:** 3:4 or 4:5 vertical
+**Size:** 1242 x 1660 px
+**Aspect ratio:** 3:4 vertical
+**Safe area:** central 84% width and central 86% height
 **Main text:** ...
 **Secondary text:** ...
 **Info text:** ...
@@ -183,3 +188,5 @@ Ask the user to confirm which prompt to generate before calling image generation
 ```
 
 If the user asks for only one platform, output only that platform's visual prompt plus confirmation.
+
+Do not output extra visual prompts for QQ, banners, thumbnails, story images, or multi-size exports unless the user explicitly asks for them.
