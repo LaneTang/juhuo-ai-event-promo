@@ -45,6 +45,8 @@ Use these as the normal gate report unless the user asks for detailed diagnostic
 | HTML follows component blueprint | v2 HTML does not visibly follow its selected blueprint, or multi-style outputs share the same skeleton. | Redesign using distinct component blueprints. |
 | WeChat compatibility passed | HTML requires JS, animation, external CSS/fonts/assets, SVG-only decoration, or non-inline styling to work. | Rewrite as static inline HTML. |
 | Visual prompt fact safety | Image prompt includes unconfirmed venue/guest/sponsor/QR code, too much text, or unsupported claims. | Rewrite prompt with confirmed facts and visible placeholders only. |
+| Package intake completed | Broad "生成宣传包" request proceeds without asking what outputs to generate. | Ask the v4 intake question before generating. |
+| Complete package complete | "完整宣传包" output omits copy, three HTML versions, visual prompts, generated images, or file manifest. | Generate the missing deliverables before final delivery. |
 
 ## Gate 1: Source Readiness
 
@@ -219,6 +221,10 @@ Run this before final delivery.
 | Check | BLOCKER | WARNING | Action |
 |---|---|---|---|
 | Requested platform missing | User asked for full package but one of WeChat/Xiaohongshu/QQ unified copy is missing. | Platform is present but too skeletal. | Generate the missing platform or explain why blocked. |
+| Intake skipped | User asked only for "生成宣传包" but output scope was assumed without asking. | N/A | Ask the package intake question from `package-intake-flow.md`. |
+| Complete package incomplete | User asked for complete package but HTML, visual prompts, generated images, or file manifest are missing. | A file exists but is not listed in manifest. | Finish the missing output and update the manifest. |
+| Image-prompt mismatch | Generated images do not correspond to the approved/generated WeChat cover or Xiaohongshu poster prompts. | Prompt and image naming are unclear. | Regenerate or clearly align image files to prompts. |
+| File manifest missing | Files are created but no manifest explains their purpose. | Manifest lacks type or purpose. | Add a concise file manifest. |
 | Unresolved blockers hidden | The output silently ignores blockers. | Blockers are mentioned only vaguely. | Include a concise "Need Confirmation" list. |
 | Placeholder misuse | Placeholder text looks like final copy, e.g. `[二维码]` buried without notice. | Placeholder exists but is clearly marked. | Surface placeholders near the end or in confirmation list. |
 | No final consistency pass | Facts were generated but not checked against fact table. | Pass was informal. | Re-scan core facts across outputs. |

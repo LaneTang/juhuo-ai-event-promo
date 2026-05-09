@@ -4,7 +4,9 @@ Use this reference to format `juhuo-ai-event-promo` outputs.
 
 ## Default Full Package
 
-When the user does not specify a platform, output:
+When the user asks for a broad promotion package without specifying scope, ask the intake question from `package-intake-flow.md` first.
+
+When the user chooses copy only, output:
 
 ```markdown
 # Juhuo AI Event Promo Package
@@ -192,3 +194,68 @@ Ask the user to confirm which prompt to generate before calling image generation
 If the user asks for only one platform, output only that platform's visual prompt plus confirmation.
 
 Do not output extra visual prompts for QQ, banners, thumbnails, story images, or multi-size exports unless the user explicitly asks for them.
+
+## Complete Package Output
+
+When the user explicitly asks for "完整宣传包", "全套宣传包", "完整走一遍", or "全部都生成出来", output and create the complete package:
+
+```markdown
+# Juhuo AI Complete Event Promo Package
+
+## Fact Table Summary
+
+Public facts, tentative facts, and risky facts.
+
+## Quality Gate Report
+
+Brief gate table with blockers, warnings, and actions.
+
+## 微信公众号文案
+
+Full mature article copy.
+
+## 小红书文案
+
+Short Xiaohongshu post.
+
+## QQ 渠道复用说明
+
+State that QQ reuses Xiaohongshu copy and WeChat/Xiaohongshu visual materials.
+
+## 公众号 HTML
+
+List the three generated HTML files:
+
+- Campus handmade tech invitation
+- Maker geek workshop
+- Academic lab field notes
+
+## Visual Prompts
+
+Include WeChat Cover Prompt and Xiaohongshu Poster Prompt with size, aspect ratio, safe area, hierarchy, and negative prompt.
+
+## Generated Images
+
+List the generated image files:
+
+- WeChat cover image
+- Xiaohongshu poster image
+
+## File Manifest
+
+| File | Type | Purpose |
+|---|---|---|
+| promo-package.md | Markdown | Main package |
+| wechat-style-campus-handmade.html | HTML | WeChat layout style A |
+| wechat-style-maker-geek.html | HTML | WeChat layout style B |
+| wechat-style-academic-field-notes.html | HTML | WeChat layout style C |
+| visual-prompts.md | Markdown | Image prompts |
+| wechat-cover.png | Image | WeChat cover |
+| xiaohongshu-poster.png | Image | Xiaohongshu poster |
+
+## Need Confirmation
+
+List unresolved publication facts, if any.
+```
+
+File naming can include a short event slug or numeric suffix to avoid overwriting existing unrelated files. Keep names stable and readable.

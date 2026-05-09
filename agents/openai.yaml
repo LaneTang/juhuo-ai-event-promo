@@ -1,4 +1,4 @@
 interface:
   display_name: "炬火活动宣传包"
-  short_description: "生成公众号推文、HTML排版、社媒文案与封面海报prompt"
-  default_prompt: "请基于这份活动策划案，生成成熟微信公众号推文、小红书文案；如需公众号HTML排版，必须将完整微信推文原样排版成HTML；如需视觉物料，只输出公众号封面图和小红书海报图prompt，并等待确认后再生成图片。"
+  short_description: "生成活动宣传包、公众号HTML与封面海报物料"
+  default_prompt: "请基于这份活动策划案使用 juhuo-ai-event-promo。若我只说生成宣传包，请先问我要哪些输出；若我说生成完整宣传包，请默认生成文案、三风格公众号HTML、公众号封面、小红书海报和文件清单。"

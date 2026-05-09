@@ -19,7 +19,9 @@ v2 supports WeChat Official Account HTML layout as an explicit downstream task.
 
 v3 supports visual material prompts as an explicit downstream task. v3.1 narrows the default visual scope to exactly two deliverables: WeChat Official Account cover prompt and Xiaohongshu poster prompt.
 
-Do not generate WeChat HTML, posters, cover images, or image assets by default. If the user explicitly requests those assets, treat them as separate downstream tasks after the copy package is fact-checked. For v3, output image-generation prompts first and ask for confirmation before generating images. When the user asks for visual materials without naming a platform, output only the WeChat cover and Xiaohongshu poster prompts.
+v4 adds an intake step for broad package requests. If the user says only "生成宣传包" or another broad request without specifying outputs, ask what to generate before producing the package. If the user explicitly says "生成完整宣传包", "全套宣传包", or "全部都生成出来", generate the complete package without asking another scope question.
+
+Do not generate WeChat HTML, posters, cover images, or image assets by default. If the user explicitly requests those assets, treat them as separate downstream tasks after the copy package is fact-checked. For v3, output image-generation prompts first and ask for confirmation before generating images. When the user asks for visual materials without naming a platform, output only the WeChat cover and Xiaohongshu poster prompts. Exception: complete package requests generate both final images directly after prompts.
 
 ## Core Rule
 
@@ -31,21 +33,25 @@ If the user provides previous Juhuo posts or published drafts, use them as style
 
 ## Workflow
 
-1. Read the user's activity plan or structured brief.
-2. Read `references/fact-table-schema.md`.
-3. Extract a fact table with publicity levels and statuses.
-4. Read `references/quality-gates.md`.
-5. Run a quality gate report before writing copy.
-6. If a `BLOCKER` affects final publication, ask for confirmation unless the user requests a placeholder draft.
-7. Read platform references only for requested outputs:
+1. Classify the request:
+   - For broad "生成宣传包" requests without specified outputs, read `references/package-intake-flow.md` and ask the intake question before generating.
+   - For "生成完整宣传包" or equivalent full-package requests, read `references/package-intake-flow.md` and proceed with the complete package defaults.
+   - For specific platform/module requests, proceed only with that requested output.
+2. Read the user's activity plan or structured brief.
+3. Read `references/fact-table-schema.md`.
+4. Extract a fact table with publicity levels and statuses.
+5. Read `references/quality-gates.md`.
+6. Run a quality gate report before writing copy.
+7. If a `BLOCKER` affects final publication, ask for confirmation unless the user requests a placeholder draft.
+8. Read platform references only for requested outputs:
    - WeChat: `references/wechat-copy-style.md` and `references/wechat-golden-copy-style.md`
    - Xiaohongshu and QQ reuse: `references/xiaohongshu-copy-style.md`
    - WeChat HTML layout: `references/wechat-html-layout.md`
      - When generating WeChat HTML, also read `references/article-to-html-mapping.md`, `references/frontend-design-core.md`, `references/wechat-frontend-design.md`, and `references/wechat-component-blueprints.md` before writing HTML.
    - Visual prompts / covers / posters: `references/visual-prompt-style.md`
-8. Read `references/output-format.md`.
-9. Generate the requested package.
-10. Run a final consistency pass across all outputs:
+9. Read `references/output-format.md`.
+10. Generate the requested package.
+11. Run a final consistency pass across all outputs:
     - event name
     - date and time
     - location or location uncertainty
@@ -67,7 +73,9 @@ If the user provides previous Juhuo posts or published drafts, use them as style
 
 ## Default Output Behavior
 
-If the user says "生成宣传包", "根据策划案写推文", or does not specify a platform, generate the full v1 package:
+If the user says "生成宣传包", "根据策划案写推文", or similar broad wording without specifying outputs, ask the package intake question from `references/package-intake-flow.md` before generating.
+
+If the user chooses copy only, or asks for a normal copy package, generate the full v1 package:
 
 - Fact table summary.
 - Quality gate report.
@@ -77,6 +85,21 @@ If the user says "生成宣传包", "根据策划案写推文", or does not spec
 - Need Confirmation list, if any.
 
 If the user specifies one platform, generate only that platform's copy, but still perform fact extraction and quality gates first.
+
+If the user explicitly asks for "生成完整宣传包", "全套宣传包", "完整走一遍", or "全部都生成出来", generate the complete v4 package:
+
+- Fact table summary.
+- Quality gate report.
+- WeChat Official Account mature article copy.
+- Xiaohongshu copy.
+- QQ reuse note.
+- Three WeChat HTML versions: campus handmade tech invitation, maker geek workshop, and academic lab field notes.
+- WeChat cover prompt.
+- Xiaohongshu poster prompt.
+- WeChat cover image.
+- Xiaohongshu poster image.
+- Need Confirmation list, if any.
+- File manifest.
 
 ## WeChat Copy Behavior
 
@@ -133,7 +156,8 @@ Rules:
 - Xiaohongshu Poster Prompt must specify `1242 x 1660 px`, `3:4 vertical`, and a safe text area.
 - QQ Channel, QQ group, and QQ campus wall reuse WeChat or Xiaohongshu visuals by default; do not create separate QQ prompts unless explicitly requested.
 - Do not create extra banners, thumbnails, story images, QQ posters, or multi-size export prompts unless the user explicitly asks.
-- Do not call image generation immediately. Ask for confirmation after presenting prompts.
+- Do not call image generation immediately for normal visual requests. Ask for confirmation after presenting prompts.
+- For complete package requests, generate the WeChat cover image and Xiaohongshu poster image directly after producing their prompts.
 - If the user confirms a specific prompt, then image generation can be used as a separate action.
 
 ## Writing Principles

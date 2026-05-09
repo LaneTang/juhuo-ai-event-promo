@@ -216,7 +216,7 @@ If the generated prompt starts to resemble a flyer, notice, schedule card, or in
 
 ## Confirmation Rule
 
-After outputting prompts, ask for confirmation before image generation.
+For normal visual requests, after outputting prompts, ask for confirmation before image generation.
 
 Use this wording:
 
@@ -225,3 +225,7 @@ Use this wording:
 ```
 
 Do not call image generation before confirmation.
+
+Exception:
+
+If the user explicitly asks for a complete package, generate the WeChat cover image and Xiaohongshu poster image directly after producing the prompts. Record the image files in the complete package file manifest.
