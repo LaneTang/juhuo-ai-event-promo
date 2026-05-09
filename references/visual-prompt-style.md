@@ -14,6 +14,16 @@ v3.1 has a deliberately narrow visual scope:
 
 Visual prompts must be based on the fact-checked promotion package.
 
+Visuals are not miniature event notices. They are first-impression hooks.
+
+Design principle:
+
+- Less is more.
+- One dominant message should carry the image.
+- Supporting information must be reduced to the minimum needed for recognition.
+- Use visual hierarchy, whitespace, contrast, scale, and composition to show priority.
+- Keep detailed agenda, venue explanation, registration instructions, and long descriptions in the article/post copy, not in the image.
+
 Use:
 
 - event name
@@ -54,9 +64,10 @@ Recommended shape:
 
 Text budget:
 
-- main title: 8-18 Chinese characters if possible
-- subtitle: one short line
-- optional time line: one short line
+- main title: 6-14 Chinese characters preferred, 18 maximum
+- subtitle: optional, one short line only
+- optional time line: only if it does not weaken the main title
+- total visible text should usually be 2 text groups, 3 maximum
 - no QR code, no long agenda, no dense body copy
 
 Composition guidance:
@@ -66,6 +77,8 @@ Composition guidance:
 - avoid placing critical text near edges
 - leave enough breathing room around the title
 - prioritize cover impact over full event detail
+- create a clear 1-2-3 hierarchy: dominant title, small supporting line, subtle metadata if needed
+- use whitespace as an active design element
 
 Prompt fields:
 
@@ -79,6 +92,7 @@ Prompt fields:
 **Main text:** ...
 **Secondary text:** ...
 **Optional time text:** ...
+**Hierarchy:** dominant element / secondary element / optional metadata
 **Visual direction:** ...
 **Composition:** ...
 **Color palette:** ...
@@ -104,9 +118,10 @@ Recommended shape:
 
 Text budget:
 
-- main title: 10-22 Chinese characters if possible
-- subtitle: one short line
-- info text: 2-3 short facts max, usually time / location wording / signup cue
+- main title: 8-16 Chinese characters preferred, 22 maximum
+- subtitle: optional, one short line only
+- info text: 1-2 short facts max, usually time and one CTA cue
+- total visible text should usually be 3 text groups, 4 maximum
 - no full agenda, no long paragraph, no fake QR code
 
 Composition guidance:
@@ -116,6 +131,9 @@ Composition guidance:
 - middle can carry visual scene or symbolic activity elements
 - bottom third can hold time/location/sign-up cue
 - leave clear margin for platform UI overlays and cropping
+- create obvious hierarchy through scale: title largest, subtitle clearly smaller, metadata smallest
+- avoid filling every area; keep one quiet area so the poster breathes
+- do not list activity process, audience categories, rules, or multiple selling points on the poster
 
 Prompt fields:
 
@@ -129,6 +147,7 @@ Prompt fields:
 **Main text:** ...
 **Secondary text:** ...
 **Info text:** ...
+**Hierarchy:** dominant element / secondary element / optional metadata
 **Visual direction:** ...
 **Composition:** ...
 **Color palette:** ...
@@ -173,20 +192,27 @@ Image text must be short and accurate.
 
 Prefer:
 
-- main title under 18 Chinese characters when possible
+- one strong visual slogan or title
+- main title under 14 Chinese characters when possible
 - one subtitle
-- one short time line
-- optional platform-friendly slogan
+- one short time line only when needed
+- large title, medium subtitle, tiny metadata
+- empty space around the primary message
 
 Avoid:
 
 - full agenda
 - long paragraphs
+- more than 3-4 visible text groups
+- multiple equal-weight slogans
+- stacking title, subtitle, time, location, signup, organizer, theme, and CTA all together
 - tentative facts presented as confirmed
 - too many hashtags
 - QR code unless the actual QR image is provided
 - small text near the image edge
 - platform-irrelevant export sizes
+
+If the generated prompt starts to resemble a flyer, notice, schedule card, or information sheet, rewrite it into a cover/poster with a single dominant message.
 
 ## Confirmation Rule
 

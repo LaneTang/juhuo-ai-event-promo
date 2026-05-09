@@ -19,11 +19,12 @@ Do not show a specific venue or QR code as confirmed.
 **Size:** 900 x 383 px
 **Aspect ratio:** 2.35:1 horizontal
 **Safe area:** central 80% width and central 76% height
-**Main text:** 炬火 AI 实践月启动
+**Main text:** 实践月开启
 **Secondary text:** 从一个想法，到一个作品
-**Optional time text:** 05.10 / 14:00-17:00
+**Optional time text:** 05.10
+**Hierarchy:** dominant element = "实践月开启" in large type; secondary element = "从一个想法，到一个作品"; optional metadata = tiny date tag only
 **Visual direction:** campus AI community invitation, warm but capable, project practice atmosphere
-**Composition:** 900 x 383 horizontal cover, central bold title inside the safe area, small date strip, background showing abstract students around a project table, subtle AI interface fragments, no real faces, no critical text near edges
+**Composition:** 900 x 383 horizontal cover, one large title inside the safe area, generous whitespace, small date tag, background showing abstract students around a project table, subtle AI interface fragments, no real faces, no critical text near edges
 **Color palette:** light blue, warm yellow, ink black, clean white
 **Style details:** hand-made tech invitation feel, marker highlight, paper note textures, clear title hierarchy, polished WeChat cover
 **Negative prompt / avoid:** no QR code, no exact venue, no corporate SaaS dashboard, no cold conference stage, no dense text, no fake sponsor logos
@@ -34,11 +35,12 @@ Do not show a specific venue or QR code as confirmed.
 **Size:** 1242 x 1660 px
 **Aspect ratio:** 3:4 vertical
 **Safe area:** central 84% width and central 86% height
-**Main text:** AI 怎么从工具箱变成实战项目？
-**Secondary text:** 炬火 AI 实践月｜AI×分享会#1
-**Info text:** 05.10 14:00-17:00｜地点以报名群通知为准
+**Main text:** AI 实战项目
+**Secondary text:** 从工具箱，到作品
+**Info text:** 05.10 下午｜扫码/报名见正文
+**Hierarchy:** dominant element = "AI 实战项目" as the largest visual anchor; secondary element = short slogan; optional metadata = one small bottom tag
 **Visual direction:** energetic campus community poster, friendly senior-student invitation, maker workshop energy
-**Composition:** 1242 x 1660 vertical poster, large question headline in the top safe area, mid-frame project table / notes / laptop / sticky labels, bottom info band for time and registration placeholder text, leave generous margins for mobile platform cropping
+**Composition:** 1242 x 1660 vertical poster, large title in the top safe area, mid-frame project table / notes / laptop / sticky labels, small bottom tag for time and sign-up cue, leave generous quiet space and margins for mobile platform cropping
 **Color palette:** light blue, ink black, warm yellow
 **Style details:** youthful campus club poster, hand labels, checklist marks, subtle tech grid, readable mobile text
 **Negative prompt / avoid:** no long agenda, no fake QR code, no exact venue, no celebrity/guest portrait, no overly commercial startup pitch style
