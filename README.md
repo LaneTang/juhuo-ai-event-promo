@@ -1,123 +1,114 @@
 # juhuo-ai-event-promo
 
-`juhuo-ai-event-promo` is a Codex skill for turning a Juhuo AI event plan into a complete campus promotion package.
+> 输入一份活动策划案，生成微信公众号、小红书、QQ 渠道与视觉物料组成的炬火 AI 社媒矩阵宣传包。
 
-It is designed for association/internal event operations where the activity plan is the single source of truth, and the final output needs to stay accurate across WeChat Official Account, Xiaohongshu, and QQ reposting channels.
+`juhuo-ai-event-promo` is a reusable agent workflow for turning a Juhuo AI event plan into a fact-checked, publication-ready campus promotion package.
 
-## What It Does
+It is designed for association event operations where the activity plan is the single source of truth, and the final package needs to stay accurate across WeChat Official Account, Xiaohongshu, QQ reposting channels, HTML layout, and visual materials.
 
-Given a Word/WPS/PDF event plan, the skill helps Codex:
+## From Plan To Promo Package
 
-- extract a structured fact table from the plan
-- identify confirmed, tentative, missing, internal, and sensitive facts
-- run publicity quality gates before writing public copy
-- generate mature, publication-ready WeChat Official Account article copy
-- generate Xiaohongshu promotional copy
-- reuse Xiaohongshu copy and visual materials for QQ Channel, QQ groups, and QQ campus wall
-- generate copyable static WeChat HTML layout when requested
-- generate WeChat cover and Xiaohongshu poster prompts/images when requested
-- list facts that still need confirmation before publication
+| Input | Output |
+|---|---|
+| Word / WPS / PDF activity plan | Fact table and quality gate report |
+| Confirmed event facts | WeChat Official Account article |
+| Campus activity tone | Xiaohongshu post and QQ reuse note |
+| Approved WeChat article | Copyable static WeChat HTML |
+| Visual direction | WeChat cover and Xiaohongshu poster prompt/image |
+| Missing or tentative facts | Need Confirmation list |
 
-The skill is intentionally conservative about factual claims. It should not invent venues, registration links, guests, organizers, deadlines, QR codes, or benefits that are not present in the plan or explicitly supplied by the user.
+The workflow is intentionally conservative about factual claims. It should not invent venues, registration links, guests, organizers, deadlines, QR codes, logos, or benefits that are not present in the plan or explicitly supplied by the user.
+
+## What You Get
+
+| Module | Deliverables |
+|---|---|
+| Copy package | Fact Table Summary, Quality Gate Report, 微信公众号文案, 小红书文案, QQ 渠道复用说明, Need Confirmation |
+| WeChat HTML layout | Full-article static HTML, frontend design plan, component blueprint, compatibility notes |
+| Visual materials | WeChat cover prompt/image, Xiaohongshu poster prompt/image, QQ reuse note |
+| Complete package | Copy package, three WeChat HTML styles, visual prompts, generated images, file manifest |
+
+Default platform behavior:
+
+- WeChat receives a mature long-form article, not a short event notice.
+- Xiaohongshu receives a shorter, warmer, more social post.
+- QQ Channel, QQ groups, and QQ campus wall reuse Xiaohongshu copy and WeChat/Xiaohongshu visual materials by default.
+- Visual materials are limited to one WeChat cover and one Xiaohongshu poster unless the user explicitly asks for more.
 
 ## How It Works
-
-The skill follows a fact-first workflow:
 
 1. Classify the request.
 2. Parse the activity plan.
 3. Extract a fact table.
 4. Run quality gates.
-5. Generate requested copy, HTML, prompt, or image outputs.
+5. Generate the requested copy, HTML, prompt, or image outputs.
 6. Run a final consistency pass across all deliverables.
 
-Broad package requests behave differently from complete package requests:
+Broad and complete package requests are handled differently:
 
-- If the user says only "生成宣传包", Codex first asks which outputs to generate.
-- If the user says "生成完整宣传包", Codex generates the full deliverable set by default.
-- If the user asks for one platform or one module, Codex generates only that requested output after fact checks.
+- If the user says only `生成宣传包`, the agent first asks which outputs to generate.
+- If the user says `生成完整宣传包`, the agent generates the full deliverable set by default.
+- If the user asks for one platform or one module, the agent generates only that requested output after fact checks.
 
-## Install
+## Quick Start
 
-Use your Codex skill installer with this repository:
-
-```text
-https://github.com/LaneTang/juhuo-ai-event-promo
-```
-
-If using the Codex skill installer script directly, the command is typically shaped like:
-
-```powershell
-python install-skill-from-github.py --repo LaneTang/juhuo-ai-event-promo --path .
-```
-
-After installation, ask Codex to use the skill on an uploaded event plan.
-
-## Usage
-
-Ask for a scoped package:
+Install or attach this repository to your agent platform, then ask:
 
 ```text
 请使用 juhuo-ai-event-promo，根据我上传的活动策划案生成宣传包。
 ```
 
-Codex should first ask what outputs to generate.
-
-Ask for the full package:
+For the complete workflow:
 
 ```text
 请使用 juhuo-ai-event-promo，根据我上传的活动策划案生成完整宣传包。
 ```
 
-Codex should generate copy, three WeChat HTML layouts, visual prompts, WeChat cover image, Xiaohongshu poster image, and a file manifest.
-
-Ask for a single module:
+For a single module:
 
 ```text
 请使用 juhuo-ai-event-promo，只根据这份策划案生成小红书文案。
 ```
 
-Codex should still extract facts and run quality gates, but it should not generate unrequested HTML or images.
+## Cross-Platform Use
 
-## Outputs
+This repository is written as a portable instruction pack: `SKILL.md` is the main entrypoint, `references/` contains the workflow rules, `scripts/` contains helper tooling, and `examples/` contains compact reference outputs.
 
-Copy package:
+| Platform | Recommended use | Notes |
+|---|---|---|
+| Codex | Use as a skill repository | This is the primary packaging style for the current repo. |
+| Claude Code | Use as a Skills directory | Copy or install the folder under `~/.claude/skills/juhuo-ai-event-promo/` or project `.claude/skills/`. The `SKILL.md` + YAML frontmatter structure matches Claude Skills conventions. |
+| Cursor | Use as project rules/context | Reference `SKILL.md` and the key `references/` files from `.cursor/rules` or `AGENTS.md`. Cursor rules are not the same as Codex/Claude Skills, so treat this repo as an instruction source. |
+| CodeBuddy | Use as rules or skill context | Adapt the workflow through `.codebuddy/rules`, `CODEBUDDY.md`, or `.codebuddy/skills/`, depending on the workspace setup. |
+| Trae | Use as rules/context material | Reference the workflow through project rules or context. Do not assume native automatic Skill discovery unless the platform setup explicitly supports it. |
 
-- Fact Table Summary
-- Quality Gate Report
-- 微信公众号文案
-- 小红书文案
-- QQ 渠道复用说明
-- Need Confirmation
+Useful platform docs:
 
-WeChat HTML layout:
+- [Claude Code Skills](https://docs.claude.com/en/docs/claude-code/skills)
+- [Claude Agent Skills](https://docs.claude.com/en/docs/agents-and-tools/agent-skills)
+- [Cursor Rules](https://docs.cursor.com/en/context)
+- [CodeBuddy Overview](https://www.codebuddy.ai/docs/ide/User-guide/Overview)
+- [CodeBuddy Rules](https://www.codebuddy.ai/docs/zh/ide/User-guide/Rules)
+- [Trae rules note](https://traeide.com/news/6)
 
-- Frontend Design Plan
-- Full Article Rendering Plan
-- Text Preservation Check
-- Component Blueprint
-- Frontend Design Capability Mapping
-- WeChat Compatibility Translation
-- WeChat HTML Style Choice
-- 微信公众号 HTML
-- Copy/Paste Notes
+Compatibility notes:
 
-Visual materials:
+- Native loading behavior differs by platform.
+- Image generation, file creation, and script execution depend on the target agent's tools and permissions.
+- `.doc`, `.wps`, and `.pdf` extraction requires local Python/tool access; if unavailable, paste the extracted plan text directly.
+- The workflow can still be used as plain instructions even when the platform does not support Skills as a first-class feature.
 
-- Visual Prompt Fact Check
-- WeChat Cover Prompt
-- Xiaohongshu Poster Prompt
-- QQ Material Reuse Note
-- Image Generation Confirmation, except when the user explicitly requests a complete package
+## Output Matrix
 
-Complete package:
-
-- copy package
-- three WeChat HTML files
-- visual prompts
-- `wechat-cover.png`
-- `xiaohongshu-poster.png`
-- file manifest
+| Request | Expected behavior |
+|---|---|
+| `生成宣传包` | Ask which outputs to generate before writing content |
+| `生成完整宣传包` | Generate copy, three WeChat HTML styles, visual prompts, images, and file manifest |
+| `只生成微信公众号文案` | Generate only WeChat copy after fact checks |
+| `只生成小红书文案` | Generate only Xiaohongshu copy after fact checks |
+| `生成公众号HTML` | Generate HTML from the full approved WeChat article |
+| `生成视觉物料prompt` | Generate WeChat cover and Xiaohongshu poster prompts first |
+| `生成小红书海报图` | Generate or prepare the Xiaohongshu poster according to platform size and fact safety rules |
 
 ## Runtime Requirements
 
@@ -136,12 +127,6 @@ Recommended Python fallback for old `.doc` files:
 ```powershell
 python -m pip install olefile
 ```
-
-Word COM fallback requires:
-
-- Windows
-- Microsoft Word or another compatible application that can open the document
-- `pywin32`
 
 Optional dependencies can be installed with:
 
