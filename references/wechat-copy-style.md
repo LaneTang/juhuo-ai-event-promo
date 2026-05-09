@@ -2,6 +2,8 @@
 
 Use this reference when generating WeChat Official Account copy for Juhuo AI event promotion.
 
+Required companion reference: also read `references/wechat-golden-copy-style.md` before writing WeChat copy.
+
 ## Positioning
 
 The WeChat article should feel like a campus AI community invitation, not an internal activity plan. It should be complete enough for public release, warm enough for students to want to come, and structured enough for readers to scan.
@@ -27,6 +29,14 @@ Minimum content requirements:
 - Include time, location status, registration method, and Need Confirmation items if any.
 
 If the generated article looks like an outline, event notice, or abstract, revise it before delivery.
+
+Hard reject:
+
+- WeChat copy under 1000 Chinese characters when the plan contains background, audiences, rules, and agenda.
+- A copy structure where `活动信息` appears before the reader understands why the event matters.
+- One-line participant categories with no motivation, scene, or action.
+- Agenda items with only time labels and no explanation.
+- Copy that could be posted directly as a QQ group notice without feeling like a WeChat article.
 
 ## Recommended Structure
 
@@ -171,6 +181,8 @@ Do not replace tentative facts with remembered or previous-event locations unles
 ## WeChat HTML Note
 
 This reference is for copy only. If the user asks for WeChat HTML layout, use static WeChat-compatible HTML with mostly inline styles. Do not rely on animation, JavaScript, external CSS, pseudo-elements, or remote assets.
+
+For HTML layout, use the full article produced from this reference. Do not shorten the article first just to make HTML easier.
 
 ## Common Failure: Too Short
 

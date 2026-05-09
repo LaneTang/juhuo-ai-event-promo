@@ -4,21 +4,29 @@ Use this reference before generating any v2 WeChat HTML.
 
 This file makes the v2 HTML module self-contained. Do not depend on an external `frontend-design` skill being installed or explicitly invoked. The goal is to preserve strong frontend-design thinking, then translate it into static WeChat-compatible inline HTML.
 
+Required companion references:
+
+- `references/frontend-design-core.md`
+- `references/wechat-component-blueprints.md`
+
+Use the complete WeChat article as the source material. Do not design HTML from a compressed event summary.
+
 ## Core Rule
 
 Every v2 HTML output must prove that it was designed before it was coded.
 
 Do not generate HTML until these three sections are complete:
 
-1. `Frontend Design Pass`
-2. `Frontend Design Capability Mapping`
-3. `Compatibility Downgrade Notes`
+1. `Frontend Design Plan`
+2. `Component Blueprint`
+3. `Frontend Design Capability Mapping`
+4. `WeChat Compatibility Translation`
 
 If any section is missing, generic, or not reflected in the HTML, revise before delivery.
 
-## Frontend Design Pass
+## Frontend Design Plan
 
-Produce a concise design pass with these fields:
+Produce a concise design plan with these fields:
 
 | Field | Requirement |
 |---|---|
@@ -31,6 +39,25 @@ Produce a concise design pass with these fields:
 | Information Hierarchy | Identify the first-screen message, highlighted sentence, scannable sections, and conversion block. |
 | Component System | Define how title, intro, quote, headings, audience, rules, agenda, info, QR placeholder, and CTA look. |
 | Compatibility Translation | Explain how the design will stay static, inline-style based, and WeChat-compatible. |
+
+## Component Blueprint
+
+Select and follow one blueprint from `wechat-component-blueprints.md`.
+
+For each requested HTML version, name the blueprint and specify:
+
+- first screen/title block
+- intro treatment
+- golden sentence treatment
+- section heading system
+- audience/participant components
+- rules/checklist component
+- agenda/timeline component
+- time-location-registration component
+- QR placeholder
+- closing CTA
+
+The HTML must visibly follow this blueprint.
 
 ## Frontend Design Capability Mapping
 
@@ -48,7 +75,7 @@ Map frontend-design capability into WeChat-safe decisions. This is required even
 | Background & Visual Details | Use WeChat-safe details: inline backgrounds, borders, dashed rules, ruled-paper rows, labels, corner tags, shadow-like border offsets, simple repeated motifs. |
 | Polish | Check every component: title, intro, quote, headings, cards, checklist, timeline, info block, QR placeholder, CTA. Nothing should feel like leftover Markdown. |
 
-## Compatibility Downgrade Notes
+## WeChat Compatibility Translation
 
 Translate ambitious frontend ideas into static WeChat HTML:
 
@@ -93,7 +120,7 @@ Avoid:
 
 ## Multi-Style Comparison Rule
 
-When generating multiple style versions, each version must have a different design pass and capability mapping.
+When generating multiple style versions, each version must have a different design plan, component blueprint, and capability mapping.
 
 Each version must differ in at least five of these eight areas:
 

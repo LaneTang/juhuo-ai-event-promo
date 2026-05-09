@@ -11,7 +11,7 @@ Given a Word/WPS/PDF event plan, the skill helps Codex:
 - extract a structured fact table from the plan
 - identify confirmed, tentative, missing, internal, and sensitive facts
 - run publicity quality gates before copywriting
-- generate WeChat Official Account article copy
+- generate mature, publication-ready WeChat Official Account article copy
 - generate copyable static WeChat HTML layout when explicitly requested
 - generate Xiaohongshu promotional copy
 - reuse Xiaohongshu copy and materials for QQ Channel, QQ groups, and QQ campus wall
@@ -21,7 +21,7 @@ The skill is intentionally conservative about factual claims. It should not inve
 
 ## Current Scope
 
-v1 focuses on copywriting and fact safety. v2 adds explicit WeChat HTML layout generation.
+v1 focuses on mature copywriting and fact safety. v2 adds explicit WeChat HTML layout generation from the complete WeChat article.
 
 Supported by default:
 
@@ -36,9 +36,9 @@ Supported when explicitly requested:
 
 - WeChat HTML layout
 
-The WeChat HTML layout module includes an internal frontend-design-like design engine in `references/wechat-frontend-design.md`. It does not depend on an external `frontend-design` skill being installed or explicitly invoked.
+The WeChat HTML layout module includes a vendored frontend-design core in `references/frontend-design-core.md`, a WeChat translation layer in `references/wechat-frontend-design.md`, and component-level blueprints in `references/wechat-component-blueprints.md`. It does not depend on an external `frontend-design` skill being installed or explicitly invoked.
 
-Before HTML generation, v2 must define the article's purpose, audience, bold aesthetic direction, differentiation, hierarchy, memorable visual motif, and component system. It must also output a `Frontend Design Capability Mapping` and `Compatibility Downgrade Notes`, then translate the design into static WeChat-compatible inline HTML.
+Before HTML generation, v2 must use the full WeChat article as source material, define a `Frontend Design Plan`, select a `Component Blueprint`, map frontend-design capability into WeChat-safe decisions, and translate the design into static WeChat-compatible inline HTML.
 
 When multiple HTML styles are requested for comparison, the versions must differ structurally, not just by palette. The style-drift gate checks the first screen, heading system, highlighted sentence, audience blocks, rules/checklist, agenda/timeline, info block, closing CTA, and QR placeholder treatment.
 
@@ -59,10 +59,14 @@ juhuo-ai-event-promo/
 │   └── openai.yaml
 ├── references/
 │   ├── fact-table-schema.md
+│   ├── frontend-design-core.md
 │   ├── quality-gates.md
 │   ├── output-format.md
 │   ├── runtime-requirements.md
+│   ├── wechat-component-blueprints.md
 │   ├── wechat-copy-style.md
+│   ├── wechat-golden-copy-style.md
+│   ├── wechat-frontend-design.md
 │   ├── wechat-html-layout.md
 │   └── xiaohongshu-copy-style.md
 ├── scripts/
@@ -73,6 +77,7 @@ juhuo-ai-event-promo/
 │   ├── e2e-test-report.md
 │   ├── e2e-test-juhuo-promo-pack.md
 │   ├── e2e-test-mingyuehu-promo-pack.md
+│   ├── v2-failure-regression.md
 │   └── sample-wechat-html.md
 └── requirements-optional.txt
 ```
@@ -179,9 +184,10 @@ For a full package, Codex should output:
 
 When explicitly asked for WeChat HTML layout, Codex should also output:
 
-- Frontend Design Pass
+- Frontend Design Plan
+- Component Blueprint
 - Frontend Design Capability Mapping
-- Compatibility Downgrade Notes
+- WeChat Compatibility Translation
 - WeChat HTML Style Choice
 - 微信公众号 HTML
 - Copy/Paste Notes
@@ -199,8 +205,9 @@ When testing this skill in a fresh Codex project, verify that:
 - missing registration links become placeholders or confirmation items
 - internal details are not leaked into public copy
 - QQ is treated as a Xiaohongshu reuse channel by default
+- WeChat copy is a mature article, not a short event summary
 - WeChat HTML includes an internal frontend design pass before any HTML
-- WeChat HTML includes Frontend Design Capability Mapping and Compatibility Downgrade Notes
+- WeChat HTML includes Component Blueprint, Frontend Design Capability Mapping, and WeChat Compatibility Translation
 - multi-style WeChat HTML outputs differ in structure, motif, and component system, not only in colors or labels
 - WeChat HTML, when requested, is static, inline-style based, and does not rely on JS/animation/external CSS
 

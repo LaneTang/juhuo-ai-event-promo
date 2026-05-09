@@ -4,13 +4,15 @@ Use this reference when the user explicitly asks for WeChat Official Account HTM
 
 This is a v2 downstream module. Do not use it before the event facts and WeChat copy have passed quality gates.
 
-Required companion reference: read `references/wechat-frontend-design.md` before writing any HTML.
+Required companion references: read `references/frontend-design-core.md`, `references/wechat-frontend-design.md`, and `references/wechat-component-blueprints.md` before writing any HTML.
 
 ## Core Rule
 
 Generate static WeChat-compatible HTML that still looks good after animations and scripts are stripped.
 
-Before writing HTML, apply the internal WeChat frontend design pass from `references/wechat-frontend-design.md`. Do not depend on an external `frontend-design` skill being installed.
+Before writing HTML, apply the full internal frontend-design flow from `references/frontend-design-core.md`, then translate it through `references/wechat-frontend-design.md` and the selected component blueprint from `references/wechat-component-blueprints.md`. Do not depend on an external `frontend-design` skill being installed.
+
+Use the complete WeChat article as source material. Do not base HTML on a compressed summary.
 
 The design pass must decide:
 
@@ -49,15 +51,19 @@ Avoid:
 When generating v2 HTML, output:
 
 ````markdown
-## Frontend Design Pass
+## Frontend Design Plan
 
 Purpose, audience, tone, bold aesthetic direction, differentiation, memorable motif, information hierarchy, component system, and compatibility translation.
+
+## Component Blueprint
+
+Selected style blueprint and concrete component choices for first screen, headings, participant blocks, rules, agenda, info block, QR placeholder, and CTA.
 
 ## Frontend Design Capability Mapping
 
 How frontend-design capabilities are translated into WeChat-safe decisions.
 
-## Compatibility Downgrade Notes
+## WeChat Compatibility Translation
 
 How richer frontend ideas are reduced to static inline HTML without losing the visual concept.
 
@@ -103,7 +109,7 @@ Body text defaults:
 
 Choose one style family based on the event tone, user request, or previous Juhuo style. Do not lock the design to a single fixed template. Within each family, vary the element combinations while preserving the overall mood.
 
-The style family is not the design by itself. After choosing a family, still create a frontend-design pass that adapts the family to the specific event, copy, audience, and factual constraints.
+The style family is not the design by itself. After choosing a family, still create a frontend-design plan that adapts the family to the specific event, copy, audience, and factual constraints.
 
 When the user asks for multiple style versions, the versions must differ in visible structure, not only in colors or labels. Before writing HTML, define a distinct visual motif and component system for each version.
 
@@ -227,7 +233,7 @@ For event invitation HTML, include these components when the copy contains them:
 
 ## Component Patterns
 
-These patterns are starting points only. Do not mechanically repeat them. Use them as WeChat-compatible building blocks after the frontend-design pass has defined the page rhythm and visual motif.
+These patterns are starting points only. Do not mechanically repeat them. Use them as WeChat-compatible building blocks after the frontend-design plan and component blueprint have defined the page rhythm and visual motif.
 
 ### Title Block
 
@@ -278,9 +284,11 @@ Use a strong first viewport signal. The title must be readable on mobile.
 
 Before delivering HTML, verify:
 
-- A frontend-design pass is present before the HTML.
+- A Frontend Design Plan is present before the HTML.
+- The HTML is based on complete WeChat article copy, not a short summary.
+- A Component Blueprint is present before the HTML.
 - Frontend Design Capability Mapping is present before the HTML.
-- Compatibility Downgrade Notes are present before the HTML.
+- WeChat Compatibility Translation is present before the HTML.
 - The design pass names a specific visual concept beyond the selected style family.
 - The HTML reflects the design pass through hierarchy, spacing, recurring motifs, and component choices.
 - For multi-style output, each version has a different motif and component system, not just different colors.

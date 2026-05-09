@@ -30,7 +30,19 @@ If all checks pass, still include:
 Quality gates passed. No blockers found.
 ```
 
-For normal user-facing output, keep the report brief. For skill testing or debugging, include the full table.
+For normal user-facing output, keep the report brief and focus on hard gates only. For skill testing or debugging, include the full table.
+
+## Compact Hard Gates
+
+Use these as the normal gate report unless the user asks for detailed diagnostics:
+
+| Gate | BLOCKER | Action |
+|---|---|---|
+| Fact safety | Required public facts are missing/conflicting, tentative facts are written as confirmed, internal/private details leak, or unsupported promises appear. | Stop, ask, or use explicit placeholders/uncertainty. |
+| WeChat article is publishable | WeChat copy is a short notice/outline, lacks scene/hook/value, ignores public facts, or is under 1000 Chinese characters despite rich source facts. | Rewrite using `wechat-copy-style.md` and `wechat-golden-copy-style.md`. |
+| Frontend design plan completed | v2 HTML is generated without reading `frontend-design-core.md`, `wechat-frontend-design.md`, and `wechat-component-blueprints.md`, or without a concrete design plan. | Complete the design plan before HTML. |
+| HTML follows component blueprint | v2 HTML does not visibly follow its selected blueprint, or multi-style outputs share the same skeleton. | Redesign using distinct component blueprints. |
+| WeChat compatibility passed | HTML requires JS, animation, external CSS/fonts/assets, SVG-only decoration, or non-inline styling to work. | Rewrite as static inline HTML. |
 
 ## Gate 1: Source Readiness
 
@@ -124,6 +136,7 @@ Use these checks only for platforms requested by the user.
 |---|---|---|---|
 | Missing event basics | The article lacks time, location/location status, registration method, or organizer. | Basics appear only at the end and are easy to miss. | Add a clear "时间与地点/报名方式" section. |
 | Too short for publication | Full WeChat article is only an outline or under about 1000 Chinese characters despite rich source facts. | Article is readable but omits useful background, rules, audience motivation, or agenda detail. | Expand into a publication-ready article using `wechat-copy-style.md`. |
+| Not golden-style mature | Article lacks hook, scene-setting introduction, activity value, human participant invitations, agenda explanations, and closing invitation. | Some parts are mature but the article still feels like a notice. | Rewrite using `wechat-golden-copy-style.md`. |
 | Low information density | Article ignores important public/adaptable facts such as background, roadshow rules, participant categories, agenda, or follow-up context. | Some facts are present but collapsed into generic bullets. | Reuse more fact-table content while preserving public/internal filters. |
 | Too mechanical | Article reads like a copied策划案 with bureaucratic section names. | Some plan wording remains. | Rewrite as a campus invitation with narrative flow. |
 | Weak hierarchy | Readers cannot quickly scan sections, audience, rules, and agenda. | Headings are present but repetitive. | Use numbered sections, highlighted quotes, cards, or checklists as appropriate. |
@@ -136,11 +149,13 @@ Use these checks when the user requests HTML or 微信公众号排版.
 | Check | BLOCKER | WARNING | Action |
 |---|---|---|---|
 | Dynamic dependency | HTML uses JavaScript, animation, external CSS, external fonts, or remote assets as required layout elements. | Minor unsupported styling may be stripped by WeChat. | Rewrite as static inline-style HTML. |
-| Design engine skipped | HTML is generated without reading `wechat-frontend-design.md`. | Design reference is read but only weakly reflected in output. | Read the internal design engine and regenerate design pass, capability mapping, and compatibility downgrade notes before writing HTML. |
-| Missing design pass | HTML is generated directly without a prior WeChat frontend design pass. | Design pass exists but is too generic to guide layout. | Add a design pass covering purpose, audience, tone, bold aesthetic direction, differentiation, memorable motif, information hierarchy, component system, and compatibility translation before writing HTML. |
+| Compressed source copy | HTML is generated from a fact summary or shortened WeChat copy instead of the complete article. | Some article paragraphs are dropped without design reason. | Regenerate HTML from the full mature WeChat article. |
+| Design engine skipped | HTML is generated without reading `frontend-design-core.md`, `wechat-frontend-design.md`, and `wechat-component-blueprints.md`. | References are read but weakly reflected in output. | Read the internal design engine and regenerate design plan, component blueprint, capability mapping, and compatibility translation before writing HTML. |
+| Missing design plan | HTML is generated directly without a prior WeChat frontend design plan. | Design plan exists but is too generic to guide layout. | Add a design plan covering purpose, audience, tone, bold aesthetic direction, differentiation, motif, hierarchy, component system, and compatibility translation before writing HTML. |
+| Missing component blueprint | `Component Blueprint` is absent or does not specify first screen, headings, participant blocks, rules, agenda, info block, QR placeholder, and CTA. | Blueprint exists but is not reflected in HTML. | Select a blueprint from `wechat-component-blueprints.md` and follow it visibly. |
 | Generic frontend pass | Design pass uses generic words such as "clean", "modern", or "tech" without a concrete visual concept, motif, component system, or differentiation. | Design pass has a concept but weak mapping to concrete components. | Rewrite the design pass with bold aesthetic direction, differentiation, motif, hierarchy, and component system. |
 | Missing capability mapping | `Frontend Design Capability Mapping` is absent. | Mapping exists but does not cover typography, color/theme, spatial composition, background/details, and polish. | Map frontend-design capabilities into concrete WeChat-safe design decisions. |
-| Missing compatibility downgrade | `Compatibility Downgrade Notes` are absent. | Notes exist but do not explain how motion, hover, external fonts, complex backgrounds, pseudo-elements, assets, or layout ideas become static inline HTML. | Add downgrade notes before HTML and ensure the HTML follows them. |
+| Missing compatibility translation | `WeChat Compatibility Translation` is absent. | Notes exist but do not explain how motion, hover, external fonts, complex backgrounds, pseudo-elements, assets, or layout ideas become static inline HTML. | Add compatibility translation before HTML and ensure the HTML follows it. |
 | Style not selected | No clear style family is chosen. | Style is mixed but still coherent. | Choose from `wechat-html-layout.md`: handmade tech invitation, maker geek, or academic lab field notes. |
 | Generic AI aesthetics | Layout looks like interchangeable cards with weak hierarchy, timid palette, or no memorable visual idea. | Design is serviceable but not distinctive. | Rework with a clearer visual point of view, stronger first screen, recurring motif, and better spacing rhythm. |
 | Style drift in multi-version output | Multiple style versions share the same layout skeleton and differ only by palette, border color, labels, or small decorative text. | Two versions have some shared structure but distinct key components. | Redesign at least one version so first screen, heading system, audience cards, rule block, agenda block, info block, and CTA visibly differ. |

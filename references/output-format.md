@@ -19,7 +19,7 @@ Brief gate table. Include blockers, warnings, and actions.
 
 ## 微信公众号文案
 
-Full WeChat article copy.
+Full publication-ready WeChat article copy. Default output should be a mature article, not a short event summary.
 
 ## 小红书文案
 
@@ -69,15 +69,19 @@ Only facts and risks relevant to the WeChat article.
 
 Include copy and HTML compatibility gates.
 
-## Frontend Design Pass
+## Frontend Design Plan
 
 Purpose, audience, tone, bold aesthetic direction, differentiation, memorable motif, information hierarchy, component system, and compatibility translation. This internal WeChat frontend design pass must happen before HTML generation.
+
+## Component Blueprint
+
+Selected blueprint and concrete component decisions for first screen, intro, golden sentence, headings, participant blocks, rules/checklist, agenda/timeline, info block, QR placeholder, and CTA.
 
 ## Frontend Design Capability Mapping
 
 Map purpose, tone, bold aesthetic direction, differentiation, typography, color/theme, spatial composition, background/visual details, and polish into concrete WeChat-safe design decisions.
 
-## Compatibility Downgrade Notes
+## WeChat Compatibility Translation
 
 Explain how richer frontend ideas such as motion, hover states, external fonts, complex backgrounds, pseudo-elements, SVG/icons, fixed layout, or remote assets are translated into static inline HTML.
 
@@ -96,7 +100,7 @@ Chosen style family and why.
 Static, inline-style based, no JS/animation/external CSS. List QR placeholders or facts that still need confirmation.
 ````
 
-For multi-style HTML comparison, repeat `Frontend Design Pass`, `Frontend Design Capability Mapping`, `Compatibility Downgrade Notes`, `WeChat HTML Style Choice`, `微信公众号 HTML`, and `Copy/Paste Notes` for each style version, then add:
+For multi-style HTML comparison, repeat `Frontend Design Plan`, `Component Blueprint`, `Frontend Design Capability Mapping`, `WeChat Compatibility Translation`, `WeChat HTML Style Choice`, `微信公众号 HTML`, and `Copy/Paste Notes` for each style version, then add:
 
 ```markdown
 ## Style Difference Summary

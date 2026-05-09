@@ -9,9 +9,9 @@ description: Use when creating Juhuo AI event promotion copy from an activity pl
 
 Use this skill to turn a Juhuo AI event plan into a publishable promotion package.
 
-v1 output focuses on copywriting:
+v1 output focuses on mature, publishable copywriting:
 
-- WeChat Official Account article copy.
+- WeChat Official Account article copy. Default WeChat copy must be a complete 1200-2200 Chinese-character article when facts are sufficient, not a short event summary.
 - Xiaohongshu post copy.
 - QQ Channel, QQ group, and QQ campus wall reuse the Xiaohongshu copy and materials by default.
 
@@ -36,10 +36,10 @@ If the user provides previous Juhuo posts or published drafts, use them as style
 5. Run a quality gate report before writing copy.
 6. If a `BLOCKER` affects final publication, ask for confirmation unless the user requests a placeholder draft.
 7. Read platform references only for requested outputs:
-   - WeChat: `references/wechat-copy-style.md`
+   - WeChat: `references/wechat-copy-style.md` and `references/wechat-golden-copy-style.md`
    - Xiaohongshu and QQ reuse: `references/xiaohongshu-copy-style.md`
    - WeChat HTML layout: `references/wechat-html-layout.md`
-     - When generating WeChat HTML, also read `references/wechat-frontend-design.md` before writing HTML.
+     - When generating WeChat HTML, also read `references/frontend-design-core.md`, `references/wechat-frontend-design.md`, and `references/wechat-component-blueprints.md` before writing HTML.
 8. Read `references/output-format.md`.
 9. Generate the requested package.
 10. Run a final consistency pass across all outputs:
@@ -75,6 +75,18 @@ If the user says "生成宣传包", "根据策划案写推文", or does not spec
 
 If the user specifies one platform, generate only that platform's copy, but still perform fact extraction and quality gates first.
 
+## WeChat Copy Behavior
+
+Default WeChat copy must be a mature public article, not a notice or abstract.
+
+Rules:
+
+- Read both `references/wechat-copy-style.md` and `references/wechat-golden-copy-style.md`.
+- Use the complete public/adaptable fact table, not only title/time/audience/CTA.
+- Include a hook, scene-setting introduction, activity value, participant invitations, rules/notes, agenda explanations, time/location/registration, and closing invitation.
+- Do not output a 500-800 character summary unless the user explicitly asks for a short version.
+- If the article looks like an outline, event notice, QQ group notice, or fact summary, revise it before delivering.
+
 ## WeChat HTML Behavior
 
 Only generate WeChat HTML when the user explicitly asks for HTML, 公众号排版, or a copyable WeChat backend layout.
@@ -83,10 +95,16 @@ Rules:
 
 - Base the HTML on fact-checked WeChat copy.
 - Read `references/wechat-html-layout.md`.
+- Read `references/frontend-design-core.md`.
 - Read `references/wechat-frontend-design.md`.
+- Read `references/wechat-component-blueprints.md`.
+- Use the full mature WeChat article as the HTML source. Do not generate v2 HTML from a compressed summary, fact table, or shortened copy.
+- Before writing HTML, select a component blueprint from `references/wechat-component-blueprints.md` for each requested style version.
 - Before writing HTML, perform the internal WeChat frontend design pass: define purpose, audience, tone, bold aesthetic direction, differentiation, memorable motif, information hierarchy, component system, and compatibility translation.
+- Output a `Frontend Design Plan`.
+- Output a `Component Blueprint` that names the required first screen, heading system, participant blocks, rules/checklist, agenda/timeline, info block, QR placeholder, and CTA treatment.
 - Output a `Frontend Design Capability Mapping` that translates frontend-design capabilities into WeChat-safe decisions.
-- Output `Compatibility Downgrade Notes` that explain how richer frontend ideas such as motion, hover states, external fonts, complex backgrounds, pseudo-elements, or assets become static inline HTML.
+- Output `WeChat Compatibility Translation` that explains how richer frontend ideas such as motion, hover states, external fonts, complex backgrounds, pseudo-elements, or assets become static inline HTML.
 - Translate the design pass into WeChat-compatible static HTML. Keep the design ambition, but remove incompatible implementation techniques.
 - Choose a style family from that reference unless the user specifies one.
 - When generating multiple HTML style versions, make the versions structurally distinct. Do not deliver three outputs that only change palette, border colors, headings, or label text.
