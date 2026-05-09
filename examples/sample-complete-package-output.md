@@ -1,4 +1,4 @@
-# Sample v4 Complete Package Output
+# Sample Complete Package Output
 
 This sample shows the expected structure when the user explicitly asks for a complete package.
 

@@ -9,19 +9,14 @@ description: Use when creating Juhuo AI event promotion copy from an activity pl
 
 Use this skill to turn a Juhuo AI event plan into a publishable promotion package.
 
-v1 output focuses on mature, publishable copywriting:
+The skill supports four production capabilities:
 
-- WeChat Official Account article copy. Default WeChat copy must be a complete 1200-2200 Chinese-character article when facts are sufficient, not a short event summary.
-- Xiaohongshu post copy.
-- QQ Channel, QQ group, and QQ campus wall reuse the Xiaohongshu copy and materials by default.
+- Copy package generation: WeChat Official Account article copy, Xiaohongshu post copy, and QQ reuse notes. Default WeChat copy must be a complete 1200-2200 Chinese-character article when facts are sufficient, not a short event summary.
+- WeChat HTML layout: a copyable static WeChat Official Account layout generated from the complete approved WeChat article.
+- Visual materials: WeChat Official Account cover prompt/image and Xiaohongshu poster prompt/image.
+- Package intake: broad package requests ask what to generate first; complete package requests generate the full deliverable set.
 
-v2 supports WeChat Official Account HTML layout as an explicit downstream task.
-
-v3 supports visual material prompts as an explicit downstream task. v3.1 narrows the default visual scope to exactly two deliverables: WeChat Official Account cover prompt and Xiaohongshu poster prompt.
-
-v4 adds an intake step for broad package requests. If the user says only "生成宣传包" or another broad request without specifying outputs, ask what to generate before producing the package. If the user explicitly says "生成完整宣传包", "全套宣传包", or "全部都生成出来", generate the complete package without asking another scope question.
-
-Do not generate WeChat HTML, posters, cover images, or image assets by default. If the user explicitly requests those assets, treat them as separate downstream tasks after the copy package is fact-checked. For v3, output image-generation prompts first and ask for confirmation before generating images. When the user asks for visual materials without naming a platform, output only the WeChat cover and Xiaohongshu poster prompts. Exception: complete package requests generate both final images directly after prompts.
+Do not generate WeChat HTML, posters, cover images, or image assets by default. If the user explicitly requests those assets, treat them as separate downstream tasks after the copy package is fact-checked. For normal visual material requests, output image-generation prompts first and ask for confirmation before generating images. When the user asks for visual materials without naming a platform, output only the WeChat cover and Xiaohongshu poster prompts. Exception: complete package requests generate both final images directly after prompts.
 
 ## Core Rule
 
@@ -65,7 +60,7 @@ If the user provides previous Juhuo posts or published drafts, use them as style
 - Prefer `scripts/extract_plan_text.py` when the input is a WPS, Word, or PDF file.
   - Example: `python scripts/extract_plan_text.py <plan.docx> --out extracted-plan.txt`
   - Supported types: `.docx`, `.docm`, `.doc`, `.wps`, `.wpt`, `.pdf`.
-- Read `references/runtime-requirements.md` when installing the skill on a new machine, debugging document extraction, or preparing a GitHub-based forward test.
+- Read `references/runtime-requirements.md` when installing the skill on a new machine or debugging document extraction.
 - For `.docx`, extract text through normal document tooling or OOXML text extraction.
 - For legacy `.doc`, `.wps`, and `.wpt`, try external converters before Word COM when possible. Word COM may fail in non-interactive Codex environments with login-session errors. If all extraction methods fail, ask the user for a `.docx` version or pasted text instead of guessing.
 - For `.pdf`, use a PDF text parser when available; otherwise use the script's Word COM fallback on Windows.
@@ -75,7 +70,7 @@ If the user provides previous Juhuo posts or published drafts, use them as style
 
 If the user says "生成宣传包", "根据策划案写推文", or similar broad wording without specifying outputs, ask the package intake question from `references/package-intake-flow.md` before generating.
 
-If the user chooses copy only, or asks for a normal copy package, generate the full v1 package:
+If the user chooses copy only, or asks for a normal copy package, generate the copy package:
 
 - Fact table summary.
 - Quality gate report.
@@ -86,7 +81,7 @@ If the user chooses copy only, or asks for a normal copy package, generate the f
 
 If the user specifies one platform, generate only that platform's copy, but still perform fact extraction and quality gates first.
 
-If the user explicitly asks for "生成完整宣传包", "全套宣传包", "完整走一遍", or "全部都生成出来", generate the complete v4 package:
+If the user explicitly asks for "生成完整宣传包", "全套宣传包", "完整走一遍", or "全部都生成出来", generate the complete package:
 
 - Fact table summary.
 - Quality gate report.
@@ -144,14 +139,14 @@ Rules:
 
 ## Visual Prompt Behavior
 
-Only generate visual prompts when the user explicitly asks for cover images, posters, social media visuals, image prompts, visual materials, or v3 outputs.
+Only generate visual prompts when the user explicitly asks for cover images, posters, social media visuals, image prompts, or visual materials.
 
 Rules:
 
 - Read `references/visual-prompt-style.md`.
 - Base prompts on the fact-checked promotion package, not raw assumptions.
 - Output prompts for requested platforms.
-- If the user asks for a full visual package, visual materials, poster/cover, 配图, or v3 outputs without naming a platform, output exactly two prompts: WeChat Cover Prompt and Xiaohongshu Poster Prompt.
+- If the user asks for a full visual package, visual materials, poster/cover, or 配图 without naming a platform, output exactly two prompts: WeChat Cover Prompt and Xiaohongshu Poster Prompt.
 - WeChat Cover Prompt must specify `900 x 383 px`, `2.35:1 horizontal`, and a safe text area.
 - Xiaohongshu Poster Prompt must specify `1242 x 1660 px`, `3:4 vertical`, and a safe text area.
 - QQ Channel, QQ group, and QQ campus wall reuse WeChat or Xiaohongshu visuals by default; do not create separate QQ prompts unless explicitly requested.
@@ -186,7 +181,7 @@ Examples:
 
 ## QQ Reuse Policy
 
-For v1, do not create a separate QQ copy by default.
+Do not create a separate QQ copy by default.
 
 Reuse the Xiaohongshu copy and materials for:
 

@@ -122,7 +122,7 @@ This sample applies `references/fact-table-schema.md` to a real Juhuo AI activit
 | Field | Value | Source | Publicity | Status | Notes |
 |---|---|---|---|---|---|
 | tentative_items | 协办单位未定；活动地点未定；人员安排暂定；活动过程可灵活分配时间；无正式嘉宾/评委为暂定。 | cover；四、活动地点；七、活动流程；八、活动内容 | SENSITIVE | TENTATIVE | Biggest public-copy risks are location and co-organizer. |
-| missing_required_facts | 具体报名二维码/链接缺失；报名截止时间缺失；公开联系方式缺失；walk-in policy 缺失。 | document | SENSITIVE | MISSING | For v1 copy, QR/link can be represented as placeholder only if user allows. |
+| missing_required_facts | 具体报名二维码/链接缺失；报名截止时间缺失；公开联系方式缺失；walk-in policy 缺失。 | document | SENSITIVE | MISSING | For public copy, QR/link can be represented as placeholder only if user allows. |
 | conflicting_facts | No direct conflict found in the plan. | document | SENSITIVE | CONFIRMED | Later user messages may override location, guest/special topic, or walk-in policy. |
 | privacy_sensitive_items | 联系方式/微信收集；报名表与反馈表；照片/视频发布；未公开项目内容。 | 九、注意事项；附件一；附件二 | SENSITIVE | CONFIRMED | Public copy should reassure lightly if needed, not expose fields. |
 | potential_overclaim_items | 资源对接、项目落地、创业/收益等方向应避免保证结果。 | 二、活动目的；附件一 | SENSITIVE | INFERRED | Use "交流/尝试/对接机会", avoid "保证找到队友/拿到资源". |

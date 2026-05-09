@@ -1,6 +1,6 @@
 # Sample WeChat HTML
 
-This sample demonstrates v2 output for a Juhuo AI event invitation. It is intentionally static, inline-style based, and suitable as a reference for WeChat Official Account backend copy/paste.
+This sample demonstrates WeChat HTML output for a Juhuo AI event invitation. It is intentionally static, inline-style based, and suitable as a reference for WeChat Official Account backend copy/paste.
 
 ## WeChat HTML Style Choice
 
@@ -115,4 +115,3 @@ Reason: The event is a campus community invitation for AI project practice. It n
 - No JavaScript, animation, external CSS, or remote assets.
 - `[此处放报名二维码]` must be replaced before final publication.
 - Location remains intentionally uncertain and should only be replaced after confirmation.
-

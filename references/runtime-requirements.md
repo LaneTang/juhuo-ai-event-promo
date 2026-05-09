@@ -1,6 +1,6 @@
 # Runtime Requirements
 
-Use this reference when installing or forward-testing `juhuo-ai-event-promo` from a GitHub repo.
+Use this reference when installing `juhuo-ai-event-promo` from a GitHub repo or debugging document extraction.
 
 ## Minimum Runtime
 
@@ -49,7 +49,7 @@ If Word COM fails with a login-session error such as "指定的登录会话不�
 
 ## PDF Files
 
-PDF support is best-effort in v1.
+PDF support is best-effort.
 
 Preferred optional dependency:
 
@@ -59,7 +59,7 @@ python -m pip install pypdf
 
 If `pypdf` or `PyPDF2` is unavailable, the script tries Word COM fallback on Windows. This may work for text PDFs, but scanned PDFs may not produce usable text.
 
-## Quick Extraction Test
+## Quick Extraction Check
 
 From the skill folder:
 

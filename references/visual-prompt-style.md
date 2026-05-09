@@ -1,10 +1,10 @@
 # Visual Prompt Style
 
-Use this reference when the user asks for cover images, posters, social media visuals, visual materials, image prompts, or v3 outputs.
+Use this reference when the user asks for cover images, posters, social media visuals, visual materials, or image prompts.
 
-v3 outputs image generation prompts first. Do not call image generation until the user confirms a prompt.
+Normal visual material requests output image generation prompts first. Do not call image generation until the user confirms a prompt.
 
-v3.1 has a deliberately narrow visual scope:
+The default visual scope is deliberately narrow:
 
 - Generate only a WeChat Official Account cover prompt and a Xiaohongshu poster prompt by default.
 - Do not generate separate QQ channel, QQ group, campus wall, banner, story, thumbnail, or multi-size export prompts unless the user explicitly asks.

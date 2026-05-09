@@ -1,4 +1,4 @@
-# Sample v4 Intake Dialogue
+# Sample Intake Dialogue
 
 This sample shows the expected behavior when the user asks for a broad promotion package without specifying outputs.
 

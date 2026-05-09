@@ -1,6 +1,6 @@
 # Sample Visual Prompts
 
-This sample demonstrates v3.1 prompt-only output for a Juhuo AI event. It should not trigger image generation until the user confirms one prompt. The default visual package contains only a WeChat Official Account cover and a Xiaohongshu poster.
+This sample demonstrates prompt-only visual output for a Juhuo AI event. It should not trigger image generation until the user confirms one prompt. The default visual package contains only a WeChat Official Account cover and a Xiaohongshu poster.
 
 ## Visual Prompt Fact Check
 
@@ -47,7 +47,7 @@ Do not show a specific venue or QR code as confirmed.
 
 ## QQ Material Reuse Note
 
-QQ Channel, QQ groups, and QQ campus wall reuse the WeChat cover or Xiaohongshu poster. Default recommendation: use the Xiaohongshu poster for QQ campus wall and group forwarding because it contains more event info. Do not generate a separate QQ visual unless explicitly requested.
+QQ Channel, QQ groups, and QQ campus wall reuse the WeChat cover or Xiaohongshu poster. Default recommendation: use the Xiaohongshu poster for QQ campus wall and group sharing because it contains more event info. Do not generate a separate QQ visual unless explicitly requested.
 
 ## Image Generation Confirmation
 

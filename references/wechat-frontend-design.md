@@ -1,8 +1,8 @@
 # WeChat Frontend Design Engine
 
-Use this reference before generating any v2 WeChat HTML.
+Use this reference before generating any WeChat HTML.
 
-This file makes the v2 HTML module self-contained. Do not depend on an external `frontend-design` skill being installed or explicitly invoked. The goal is to preserve strong frontend-design thinking, then translate it into static WeChat-compatible inline HTML.
+This file makes the WeChat HTML module self-contained. Do not depend on an external `frontend-design` skill being installed or explicitly invoked. The goal is to preserve strong frontend-design thinking, then translate it into static WeChat-compatible inline HTML.
 
 Required companion references:
 
@@ -13,7 +13,7 @@ Use the complete WeChat article as the source material. Do not design HTML from 
 
 ## Core Rule
 
-Every v2 HTML output must prove that it was designed before it was coded.
+Every WeChat HTML output must prove that it was designed before it was coded.
 
 Do not generate HTML until these three sections are complete:
 

@@ -1,4 +1,4 @@
-# Sample v4 File Manifest
+# Sample File Manifest
 
 Use this manifest shape when a complete package or file-generating workflow creates multiple artifacts.
 

@@ -1,6 +1,6 @@
 # Xiaohongshu Copy Style
 
-Use this reference when generating Xiaohongshu copy for Juhuo AI event promotion. In v1, QQ Channel, QQ group, and QQ campus wall posts reuse the Xiaohongshu copy and materials by default.
+Use this reference when generating Xiaohongshu copy for Juhuo AI event promotion. QQ Channel, QQ group, and QQ campus wall posts reuse the Xiaohongshu copy and materials by default.
 
 ## Positioning
 

@@ -1,20 +1,6 @@
 # Frontend Design Core
 
-Vendored from local `frontend-design/SKILL.md` for `juhuo-ai-event-promo` v2 use.
-
-Purpose: preserve the full frontend-design method inside this skill so WeChat HTML generation does not depend on an external skill being installed or explicitly invoked.
-
-License note: source file declares `license: Complete terms in LICENSE.txt`. Keep this reference internal to this skill workflow unless licensing is reviewed for other distribution contexts.
-
-Source frontmatter:
-
-```yaml
-name: frontend-design
-description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.
-license: Complete terms in LICENSE.txt
-```
-
----
+Use this reference as the design-method foundation for polished WeChat HTML layouts. It helps the skill produce distinctive, intentional visual systems without depending on another installed skill at runtime.
 
 This skill guides creation of distinctive, production-grade frontend interfaces that avoid generic "AI slop" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.
 

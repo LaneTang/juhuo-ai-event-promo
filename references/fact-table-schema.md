@@ -324,7 +324,7 @@ This group drives quality gates.
 
 ## Required Public Fact Checklist
 
-For v1 promotional copy, these facts are required unless the user explicitly says to draft with placeholders:
+For promotional copy, these facts are required unless the user explicitly says to draft with placeholders:
 
 - `event_full_name`
 - `organizer`
@@ -481,4 +481,3 @@ If the plan does not specify style, use these defaults:
 - Avoid bureaucratic wording.
 - Avoid corporate SaaS tone.
 - Avoid overclaiming outcomes.
-

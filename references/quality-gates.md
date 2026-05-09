@@ -30,7 +30,7 @@ If all checks pass, still include:
 Quality gates passed. No blockers found.
 ```
 
-For normal user-facing output, keep the report brief and focus on hard gates only. For skill testing or debugging, include the full table.
+For normal user-facing output, keep the report brief and focus on hard gates only. For diagnostic output, include the full table.
 
 ## Compact Hard Gates
 
@@ -40,12 +40,12 @@ Use these as the normal gate report unless the user asks for detailed diagnostic
 |---|---|---|
 | Fact safety | Required public facts are missing/conflicting, tentative facts are written as confirmed, internal/private details leak, or unsupported promises appear. | Stop, ask, or use explicit placeholders/uncertainty. |
 | WeChat article is publishable | WeChat copy is a short notice/outline, lacks scene/hook/value, ignores public facts, or is under 1000 Chinese characters despite rich source facts. | Rewrite using `wechat-copy-style.md` and `wechat-golden-copy-style.md`. |
-| Frontend design plan completed | v2 HTML is generated without reading `frontend-design-core.md`, `wechat-frontend-design.md`, and `wechat-component-blueprints.md`, or without a concrete design plan. | Complete the design plan before HTML. |
-| Full article rendered | v2 HTML is generated from a fact table/summary, lacks `Full Article Rendering Plan`, omits any substantive article text, or rewrites/summarizes the article. | Render the complete WeChat article verbatim or near-verbatim into HTML. |
-| HTML follows component blueprint | v2 HTML does not visibly follow its selected blueprint, or multi-style outputs share the same skeleton. | Redesign using distinct component blueprints. |
+| Frontend design plan completed | WeChat HTML is generated without reading `frontend-design-core.md`, `wechat-frontend-design.md`, and `wechat-component-blueprints.md`, or without a concrete design plan. | Complete the design plan before HTML. |
+| Full article rendered | WeChat HTML is generated from a fact table/summary, lacks `Full Article Rendering Plan`, omits any substantive article text, or rewrites/summarizes the article. | Render the complete WeChat article verbatim or near-verbatim into HTML. |
+| HTML follows component blueprint | WeChat HTML does not visibly follow its selected blueprint, or multi-style outputs share the same skeleton. | Redesign using distinct component blueprints. |
 | WeChat compatibility passed | HTML requires JS, animation, external CSS/fonts/assets, SVG-only decoration, or non-inline styling to work. | Rewrite as static inline HTML. |
 | Visual prompt fact safety | Image prompt includes unconfirmed venue/guest/sponsor/QR code, too much text, or unsupported claims. | Rewrite prompt with confirmed facts and visible placeholders only. |
-| Package intake completed | Broad "生成宣传包" request proceeds without asking what outputs to generate. | Ask the v4 intake question before generating. |
+| Package intake completed | Broad "生成宣传包" request proceeds without asking what outputs to generate. | Ask the package intake question before generating. |
 | Complete package complete | "完整宣传包" output omits copy, three HTML versions, visual prompts, generated images, or file manifest. | Generate the missing deliverables before final delivery. |
 
 ## Gate 1: Source Readiness
@@ -61,7 +61,7 @@ Run this before trusting the fact table.
 
 ## Gate 2: Required Public Facts
 
-These fields must exist for a complete v1 promotion package.
+These fields must exist for a complete promotion package.
 
 Required fields:
 
@@ -189,7 +189,7 @@ Use these checks when the user requests HTML or 微信公众号排版.
 
 ### Visual Prompts / Image Materials
 
-Use these checks when the user requests cover images, posters, visual materials, image prompts, or v3 outputs.
+Use these checks when the user requests cover images, posters, visual materials, or image prompts.
 
 | Check | BLOCKER | WARNING | Action |
 |---|---|---|---|
@@ -199,7 +199,7 @@ Use these checks when the user requests cover images, posters, visual materials,
 | Weak hierarchy | Prompt gives many text elements equal importance, or the poster reads like a notice/flyer instead of a visual hook. | Hierarchy is described but not enforced by scale, whitespace, or composition. | Rewrite around one dominant message, one supporting line, and minimal metadata. |
 | Wrong platform shape | WeChat cover prompt is vertical, Xiaohongshu poster prompt is horizontal by default, or requested visual package creates unrelated image types. | Aspect ratio is missing. | Use WeChat cover `900 x 383 px / 2.35:1` and Xiaohongshu poster `1242 x 1660 px / 3:4`. |
 | Missing size and safe area | WeChat/Xiaohongshu prompt lacks pixel size, aspect ratio, or safe text area. | Size exists but safe area is vague. | Add platform size, aspect ratio, and safe text area before delivery. |
-| Scope creep | Visual output includes QQ posters, banners, story images, thumbnails, or multi-size exports by default. | Extra options are suggested too strongly. | Keep default v3.1 output to WeChat cover and Xiaohongshu poster only. |
+| Scope creep | Visual output includes QQ posters, banners, story images, thumbnails, or multi-size exports by default. | Extra options are suggested too strongly. | Keep default visual output to WeChat cover and Xiaohongshu poster only. |
 | QQ separate material by default | A separate QQ visual prompt is generated without explicit request. | QQ reuse note is unclear. | Default to reusing WeChat/Xiaohongshu visuals. |
 | Image generated without confirmation | Tool/image generation is called before the user confirms a prompt. | Confirmation wording is vague. | Stop at prompts and ask which one to generate. |
 

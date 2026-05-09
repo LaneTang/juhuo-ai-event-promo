@@ -143,7 +143,7 @@ If not aligned because facts are missing or tentative, state that clearly.
 
 ## Visual Prompt Output
 
-When the user explicitly requests cover images, posters, visual materials, image prompts, or v3 outputs, output:
+When the user explicitly requests cover images, posters, visual materials, or image prompts, output:
 
 ```markdown
 ## Visual Prompt Fact Check

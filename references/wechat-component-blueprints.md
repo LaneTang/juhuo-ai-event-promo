@@ -1,6 +1,6 @@
 # WeChat Component Blueprints
 
-Use this reference when generating v2 WeChat HTML.
+Use this reference when generating WeChat HTML.
 
 The purpose is to prevent three style versions from becoming the same skeleton with different colors. Each style family has its own component blueprint. Use these as structural requirements, not decorative suggestions.
 

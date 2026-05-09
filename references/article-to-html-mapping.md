@@ -1,8 +1,8 @@
 # Full Article HTML Rendering
 
-Use this reference for every v2 WeChat HTML task.
+Use this reference for every WeChat HTML layout task.
 
-Core rule: v2 HTML must render the complete generated WeChat article. The HTML task is layout and visual treatment, not rewriting, summarizing, or reselecting content.
+Core rule: WeChat HTML must render the complete generated WeChat article. The HTML task is layout and visual treatment, not rewriting, summarizing, or reselecting content.
 
 The fact table remains the truth source for checking facts, but once WeChat copy exists, the WeChat article is the sole body-content source for HTML.
 

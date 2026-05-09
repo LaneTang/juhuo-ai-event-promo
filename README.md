@@ -1,6 +1,6 @@
 # juhuo-ai-event-promo
 
-`juhuo-ai-event-promo` is a Codex skill for turning an event plan into a reusable campus social-media promotion package for Juhuo AI activities.
+`juhuo-ai-event-promo` is a Codex skill for turning a Juhuo AI event plan into a complete campus promotion package.
 
 It is designed for association/internal event operations where the activity plan is the single source of truth, and the final output needs to stay accurate across WeChat Official Account, Xiaohongshu, and QQ reposting channels.
 
@@ -10,104 +10,34 @@ Given a Word/WPS/PDF event plan, the skill helps Codex:
 
 - extract a structured fact table from the plan
 - identify confirmed, tentative, missing, internal, and sensitive facts
-- run publicity quality gates before copywriting
+- run publicity quality gates before writing public copy
 - generate mature, publication-ready WeChat Official Account article copy
-- generate copyable static WeChat HTML layout when explicitly requested
-- generate size-aware WeChat cover and Xiaohongshu poster prompts when explicitly requested
 - generate Xiaohongshu promotional copy
-- reuse Xiaohongshu copy and materials for QQ Channel, QQ groups, and QQ campus wall
+- reuse Xiaohongshu copy and visual materials for QQ Channel, QQ groups, and QQ campus wall
+- generate copyable static WeChat HTML layout when requested
+- generate WeChat cover and Xiaohongshu poster prompts/images when requested
 - list facts that still need confirmation before publication
 
-The skill is intentionally conservative about factual claims. It should not invent venues, registration links, guests, organizers, deadlines, or benefits that are not present in the plan or explicitly supplied by the user.
+The skill is intentionally conservative about factual claims. It should not invent venues, registration links, guests, organizers, deadlines, QR codes, or benefits that are not present in the plan or explicitly supplied by the user.
 
-## Current Scope
+## How It Works
 
-v1 focuses on mature copywriting and fact safety. v2 adds explicit WeChat HTML layout generation from the complete WeChat article. v3 adds visual material prompts for covers and posters. v3.1 narrows the default visual output to exactly two image types: WeChat Official Account cover and Xiaohongshu poster. v4 adds the final package intake flow: broad package requests ask what to generate first, while complete package requests generate the full deliverable set.
+The skill follows a fact-first workflow:
 
-Supported by default:
+1. Classify the request.
+2. Parse the activity plan.
+3. Extract a fact table.
+4. Run quality gates.
+5. Generate requested copy, HTML, prompt, or image outputs.
+6. Run a final consistency pass across all deliverables.
 
-- WeChat Official Account copy
-- Xiaohongshu copy
-- QQ reuse notes
-- fact table summary
-- quality gate report
-- document text extraction helper
+Broad package requests behave differently from complete package requests:
 
-Supported when explicitly requested:
+- If the user says only "生成宣传包", Codex first asks which outputs to generate.
+- If the user says "生成完整宣传包", Codex generates the full deliverable set by default.
+- If the user asks for one platform or one module, Codex generates only that requested output after fact checks.
 
-- WeChat HTML layout
-- WeChat cover and Xiaohongshu poster prompts
-
-The WeChat HTML layout module includes a vendored frontend-design core in `references/frontend-design-core.md`, a WeChat translation layer in `references/wechat-frontend-design.md`, and component-level blueprints in `references/wechat-component-blueprints.md`. It does not depend on an external `frontend-design` skill being installed or explicitly invoked.
-
-Before HTML generation, v2 must render the full WeChat article as source material, produce `Full Article Rendering Plan` and `Text Preservation Check`, define a `Frontend Design Plan`, select a `Component Blueprint`, map frontend-design capability into WeChat-safe decisions, and translate the design into static WeChat-compatible inline HTML. The visual design may wrap and emphasize text, but must not omit, rewrite, or summarize substantive article text.
-
-When multiple HTML styles are requested for comparison, the versions must differ structurally, not just by palette. The style-drift gate checks the first screen, heading system, highlighted sentence, audience blocks, rules/checklist, agenda/timeline, info block, closing CTA, and QR placeholder treatment.
-
-The v3 visual material module outputs prompts first. It does not call image generation until the user confirms a specific prompt. QQ materials reuse WeChat or Xiaohongshu visuals by default.
-
-v3.1 platform sizes:
-
-- WeChat Official Account cover: `900 x 383 px`, `2.35:1` horizontal, with important text kept in the central safe area.
-- Xiaohongshu poster: `1242 x 1660 px`, `3:4` vertical, with important text kept away from platform-cropped edges.
-
-v3.1 visual principle: less is more. The cover/poster should work as a visual hook with one dominant message, one optional supporting line, and minimal metadata. Detailed agenda, venue explanation, registration instructions, and full activity information belong in the article or post copy, not in the image.
-
-If the user asks for "visual materials" or a "full visual package", the skill should output only those two prompts unless extra platforms or sizes are explicitly requested.
-
-Not generated by default:
-
-- final cover images
-- final posters
-- final visual assets
-
-Visual prompts can be added as explicit downstream tasks after the copy package has passed fact checks.
-
-v4 request behavior:
-
-- If the user says only "生成宣传包", Codex should first ask what outputs to generate.
-- If the user says "生成完整宣传包", Codex should generate everything by default: copy, QQ reuse note, three WeChat HTML styles, visual prompts, WeChat cover image, Xiaohongshu poster image, and a file manifest.
-- If the user asks for one platform or one module, Codex should generate only that requested output after fact checks.
-
-## Repository Layout
-
-```text
-juhuo-ai-event-promo/
-├── SKILL.md
-├── agents/
-│   └── openai.yaml
-├── references/
-│   ├── fact-table-schema.md
-│   ├── article-to-html-mapping.md
-│   ├── frontend-design-core.md
-│   ├── package-intake-flow.md
-│   ├── quality-gates.md
-│   ├── output-format.md
-│   ├── runtime-requirements.md
-│   ├── wechat-component-blueprints.md
-│   ├── wechat-copy-style.md
-│   ├── wechat-golden-copy-style.md
-│   ├── wechat-frontend-design.md
-│   ├── wechat-html-layout.md
-│   ├── visual-prompt-style.md
-│   └── xiaohongshu-copy-style.md
-├── scripts/
-│   └── extract_plan_text.py
-├── examples/
-│   ├── sample-fact-table.md
-│   ├── sample-full-promo-pack.md
-│   ├── sample-intake-dialogue.md
-│   ├── sample-complete-package-output.md
-│   ├── sample-v4-file-manifest.md
-│   ├── e2e-test-report.md
-│   ├── e2e-test-juhuo-promo-pack.md
-│   ├── e2e-test-mingyuehu-promo-pack.md
-│   ├── v2-failure-regression.md
-│   └── sample-wechat-html.md
-└── requirements-optional.txt
-```
-
-## Install From GitHub
+## Install
 
 Use your Codex skill installer with this repository:
 
@@ -122,6 +52,72 @@ python install-skill-from-github.py --repo LaneTang/juhuo-ai-event-promo --path 
 ```
 
 After installation, ask Codex to use the skill on an uploaded event plan.
+
+## Usage
+
+Ask for a scoped package:
+
+```text
+请使用 juhuo-ai-event-promo，根据我上传的活动策划案生成宣传包。
+```
+
+Codex should first ask what outputs to generate.
+
+Ask for the full package:
+
+```text
+请使用 juhuo-ai-event-promo，根据我上传的活动策划案生成完整宣传包。
+```
+
+Codex should generate copy, three WeChat HTML layouts, visual prompts, WeChat cover image, Xiaohongshu poster image, and a file manifest.
+
+Ask for a single module:
+
+```text
+请使用 juhuo-ai-event-promo，只根据这份策划案生成小红书文案。
+```
+
+Codex should still extract facts and run quality gates, but it should not generate unrequested HTML or images.
+
+## Outputs
+
+Copy package:
+
+- Fact Table Summary
+- Quality Gate Report
+- 微信公众号文案
+- 小红书文案
+- QQ 渠道复用说明
+- Need Confirmation
+
+WeChat HTML layout:
+
+- Frontend Design Plan
+- Full Article Rendering Plan
+- Text Preservation Check
+- Component Blueprint
+- Frontend Design Capability Mapping
+- WeChat Compatibility Translation
+- WeChat HTML Style Choice
+- 微信公众号 HTML
+- Copy/Paste Notes
+
+Visual materials:
+
+- Visual Prompt Fact Check
+- WeChat Cover Prompt
+- Xiaohongshu Poster Prompt
+- QQ Material Reuse Note
+- Image Generation Confirmation, except when the user explicitly requests a complete package
+
+Complete package:
+
+- copy package
+- three WeChat HTML files
+- visual prompts
+- `wechat-cover.png`
+- `xiaohongshu-poster.png`
+- file manifest
 
 ## Runtime Requirements
 
@@ -153,7 +149,7 @@ Optional dependencies can be installed with:
 python -m pip install -r requirements-optional.txt
 ```
 
-PDF support is best-effort in v1. For better PDF text extraction, install `pypdf`:
+For better PDF text extraction, install `pypdf`:
 
 ```powershell
 python -m pip install pypdf
@@ -163,131 +159,60 @@ If `.doc` extraction fails with a login-session error such as `指定的登录�
 
 See [runtime-requirements.md](references/runtime-requirements.md) for details.
 
-## Quick Test
-
-From the skill folder:
-
-```powershell
-python scripts/extract_plan_text.py path\to\plan.docx --out extracted-plan.txt
-python scripts/extract_plan_text.py path\to\plan.doc --out extracted-plan.txt
-```
-
-Expected stderr contains one of:
+## Repository Layout
 
 ```text
-[extract_plan_text] method=OOXML
-[extract_plan_text] method=Word COM
+juhuo-ai-event-promo/
+├── SKILL.md
+├── agents/
+│   └── openai.yaml
+├── references/
+│   ├── fact-table-schema.md
+│   ├── article-to-html-mapping.md
+│   ├── frontend-design-core.md
+│   ├── package-intake-flow.md
+│   ├── quality-gates.md
+│   ├── output-format.md
+│   ├── runtime-requirements.md
+│   ├── visual-prompt-style.md
+│   ├── wechat-component-blueprints.md
+│   ├── wechat-copy-style.md
+│   ├── wechat-frontend-design.md
+│   ├── wechat-golden-copy-style.md
+│   ├── wechat-html-layout.md
+│   └── xiaohongshu-copy-style.md
+├── scripts/
+│   └── extract_plan_text.py
+├── examples/
+│   ├── sample-complete-package-output.md
+│   ├── sample-fact-table.md
+│   ├── sample-file-manifest.md
+│   ├── sample-full-promo-pack.md
+│   ├── sample-intake-dialogue.md
+│   ├── sample-visual-prompts.md
+│   └── sample-wechat-html.md
+└── requirements-optional.txt
 ```
 
-The script extracts plain text only. Tables may be flattened, so the skill marks source-readiness warnings when structure matters.
+## Examples
 
-## Suggested First Prompt
+The `examples/` directory contains compact reference outputs for:
 
-```text
-请安装并使用这个 skill：
-https://github.com/LaneTang/juhuo-ai-event-promo
+- fact table extraction
+- copy package structure
+- package intake dialogue
+- complete package output
+- file manifest
+- visual prompts
+- WeChat HTML layout
 
-我会上传一份活动策划案。请严格按 skill 流程：
-1. 先解析策划案
-2. 抽取事实表摘要
-3. 跑 quality gates
-4. 再生成微信公众号文案和小红书文案
-5. QQ渠道默认复用小红书文案和物料
-6. 输出 Need Confirmation，不要编造地点、报名方式或嘉宾信息
-```
+## Safety Rules
 
-## v4 Test Prompts
-
-Use this to test the intake flow:
-
-```text
-请使用 juhuo-ai-event-promo，根据我上传的活动策划案生成宣传包。
-```
-
-Expected behavior: Codex should ask what outputs to generate before producing content.
-
-Use this to test the complete package flow:
-
-```text
-请使用 juhuo-ai-event-promo，根据我上传的活动策划案生成完整宣传包。
-```
-
-Expected behavior: Codex should generate copy, three WeChat HTML versions, visual prompts, WeChat cover image, Xiaohongshu poster image, and a file manifest.
-
-## Expected Output
-
-For a full package, Codex should output:
-
-- Fact Table Summary
-- Quality Gate Report
-- 微信公众号文案
-- 小红书文案
-- QQ 渠道复用说明
-- Need Confirmation
-
-When explicitly asked for WeChat HTML layout, Codex should also output:
-
-- Frontend Design Plan
-- Full Article Rendering Plan
-- Text Preservation Check
-- Component Blueprint
-- Frontend Design Capability Mapping
-- WeChat Compatibility Translation
-- WeChat HTML Style Choice
-- 微信公众号 HTML
-- Copy/Paste Notes
-
-When explicitly asked for visual materials, Codex should output:
-
-- Visual Prompt Fact Check
-- WeChat Cover Prompt
-- Xiaohongshu Poster Prompt
-- QQ Material Reuse Note
-- Image Generation Confirmation
-
-When explicitly asked for a complete package, Codex should also create:
-
-- three WeChat HTML files
-- one visual prompts markdown file or visual prompt section in the main package
-- `wechat-cover.png`
-- `xiaohongshu-poster.png`
-- a file manifest that maps every output file to its purpose
-
-If the user asks for only one platform, the skill should still extract facts and run quality gates first.
-
-## Forward-Test Checklist
-
-When testing this skill in a fresh Codex project, verify that:
-
-- the skill is selected or installed from the GitHub repo
-- `.docx` plans can be parsed
-- `.doc` plans can be parsed on Windows with Word/WPS + `pywin32`
-- tentative venues remain tentative
-- missing registration links become placeholders or confirmation items
-- internal details are not leaked into public copy
-- QQ is treated as a Xiaohongshu reuse channel by default
-- WeChat copy is a mature article, not a short event summary
-- WeChat HTML renders the complete WeChat article, not the fact table, summary, or a shortened rewrite
-- WeChat HTML includes Full Article Rendering Plan and Text Preservation Check
-- WeChat HTML includes an internal frontend design pass before any HTML
-- WeChat HTML includes Component Blueprint, Frontend Design Capability Mapping, and WeChat Compatibility Translation
-- multi-style WeChat HTML outputs differ in structure, motif, and component system, not only in colors or labels
-- WeChat HTML, when requested, is static, inline-style based, and does not rely on JS/animation/external CSS
-- visual prompts do not invent venue, guest, QR code, or co-organizer
-- visual prompts include platform size, aspect ratio, and safe text area
-- visual prompts default to only WeChat cover and Xiaohongshu poster
-- visual prompts are visually concise, with clear hierarchy and minimal text
-- visual prompts ask for confirmation before image generation
-- normal "生成宣传包" requests ask the intake question first
-- "生成完整宣传包" requests do not ask scope again and include all v4 deliverables
-- complete package output includes a file manifest
-
-## Status
-
-v1 is ready for internal use. v2 WeChat HTML layout support has passed forward testing. v3.1 visual prompt support has passed forward testing. v4 final package intake is ready for forward testing.
-
-Known limitations:
-
-- `.wps` and `.pdf` support paths exist but have not been validated with many real-world samples
-- image/poster generation is intentionally out of default scope
-- public copy quality still benefits from human review before posting
+- Treat the activity plan as the single source of truth.
+- Preserve uncertainty instead of inventing confirmations.
+- Never expose internal logistics, private contacts, unpublished participant information, or sensitive form fields.
+- Do not promise guaranteed teammates, funding, awards, revenue, traffic, or project success.
+- Do not invent QR codes, venues, guests, sponsors, co-organizers, or logos.
+- QQ channels reuse Xiaohongshu copy and WeChat/Xiaohongshu visual materials by default.
+- WeChat HTML must render the full approved article, not a summary.
+- Visual materials should be concise, hierarchical, and platform-sized.

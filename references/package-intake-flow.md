@@ -2,7 +2,7 @@
 
 Use this reference when the user asks to "生成宣传包", "根据策划案做宣传", "做一套宣发", or similar broad package requests.
 
-v4 turns the skill into an interactive final package generator. The key rule is simple:
+This flow turns the skill into an interactive final package generator. The key rule is simple:
 
 - If the user asks for a normal promotion package but does not specify outputs, ask one short intake question before generating.
 - If the user explicitly asks for a complete package, generate the full package without asking another scope question.

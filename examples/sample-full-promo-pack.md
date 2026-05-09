@@ -2,7 +2,7 @@
 
 Input source: `uploaded-plan: 炬火AI实践月_AIx分享会1_大创专题暨模拟路演_新版策划案.docx`
 
-Mode: v1 full package draft.
+Mode: full package draft.
 
 Important: This sample is generated from the activity plan only. The plan marks the venue as tentative and does not include the final registration QR/link, so this package keeps those facts uncertain.
 
@@ -163,7 +163,7 @@ AI 已经不只是一个"好用的工具箱"。
 
 ## QQ 渠道复用说明
 
-v1 不再单独生成 QQ 渠道文案。QQ 频道、QQ群通知、QQ 校园墙投稿可直接复用上方小红书文案。
+默认不再单独生成 QQ 渠道文案。QQ 频道、QQ群通知、QQ 校园墙投稿可直接复用上方小红书文案。
 
 可选轻量处理：
 

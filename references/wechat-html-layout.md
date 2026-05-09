@@ -2,7 +2,7 @@
 
 Use this reference when the user explicitly asks for WeChat Official Account HTML layout, 微信公众号排版, 可复制进公众号后台的 HTML, or asks to turn approved WeChat copy into HTML.
 
-This is a v2 downstream module. Do not use it before the event facts and WeChat copy have passed quality gates.
+This is a downstream layout module. Do not use it before the event facts and WeChat copy have passed quality gates.
 
 Required companion references: read `references/article-to-html-mapping.md`, `references/frontend-design-core.md`, `references/wechat-frontend-design.md`, and `references/wechat-component-blueprints.md` before writing any HTML.
 
@@ -50,7 +50,7 @@ Avoid:
 
 ## Output Contract
 
-When generating v2 HTML, output:
+When generating WeChat HTML, output:
 
 ````markdown
 ## Frontend Design Plan
