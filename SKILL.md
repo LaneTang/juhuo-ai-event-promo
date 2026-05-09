@@ -99,9 +99,9 @@ Rules:
 - Read `references/frontend-design-core.md`.
 - Read `references/wechat-frontend-design.md`.
 - Read `references/wechat-component-blueprints.md`.
-- Use the full mature WeChat article as the HTML source. Do not generate v2 HTML from a compressed summary, fact table, or shortened copy.
-- Before writing HTML, produce `Article-to-HTML Mapping` and `Article Coverage Check`. Every major article unit must map to an HTML component.
-- If coverage is incomplete, revise the HTML before delivery. Do not summarize the article to make layout easier.
+- Use the full mature WeChat article as the HTML source. HTML must render the complete WeChat article, not generate a shorter version from a compressed summary, fact table, or rewritten copy.
+- Before writing HTML, produce `Full Article Rendering Plan` and `Text Preservation Check`. Every substantive source text unit must appear in HTML.
+- If any substantive text is omitted, rewritten, or summarized, revise the HTML before delivery. Do not shorten the article to make layout easier.
 - Before writing HTML, select a component blueprint from `references/wechat-component-blueprints.md` for each requested style version.
 - Before writing HTML, perform the internal WeChat frontend design pass: define purpose, audience, tone, bold aesthetic direction, differentiation, memorable motif, information hierarchy, component system, and compatibility translation.
 - Output a `Frontend Design Plan`.

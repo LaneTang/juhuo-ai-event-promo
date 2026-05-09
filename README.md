@@ -38,7 +38,7 @@ Supported when explicitly requested:
 
 The WeChat HTML layout module includes a vendored frontend-design core in `references/frontend-design-core.md`, a WeChat translation layer in `references/wechat-frontend-design.md`, and component-level blueprints in `references/wechat-component-blueprints.md`. It does not depend on an external `frontend-design` skill being installed or explicitly invoked.
 
-Before HTML generation, v2 must use the full WeChat article as source material, produce `Article-to-HTML Mapping` and `Article Coverage Check`, define a `Frontend Design Plan`, select a `Component Blueprint`, map frontend-design capability into WeChat-safe decisions, and translate the design into static WeChat-compatible inline HTML.
+Before HTML generation, v2 must render the full WeChat article as source material, produce `Full Article Rendering Plan` and `Text Preservation Check`, define a `Frontend Design Plan`, select a `Component Blueprint`, map frontend-design capability into WeChat-safe decisions, and translate the design into static WeChat-compatible inline HTML. The visual design may wrap and emphasize text, but must not omit, rewrite, or summarize substantive article text.
 
 When multiple HTML styles are requested for comparison, the versions must differ structurally, not just by palette. The style-drift gate checks the first screen, heading system, highlighted sentence, audience blocks, rules/checklist, agenda/timeline, info block, closing CTA, and QR placeholder treatment.
 
@@ -186,8 +186,8 @@ For a full package, Codex should output:
 When explicitly asked for WeChat HTML layout, Codex should also output:
 
 - Frontend Design Plan
-- Article-to-HTML Mapping
-- Article Coverage Check
+- Full Article Rendering Plan
+- Text Preservation Check
 - Component Blueprint
 - Frontend Design Capability Mapping
 - WeChat Compatibility Translation
@@ -209,8 +209,8 @@ When testing this skill in a fresh Codex project, verify that:
 - internal details are not leaked into public copy
 - QQ is treated as a Xiaohongshu reuse channel by default
 - WeChat copy is a mature article, not a short event summary
-- WeChat HTML is generated from the complete WeChat article, not from the fact table or a summary
-- WeChat HTML includes Article-to-HTML Mapping and Article Coverage Check
+- WeChat HTML renders the complete WeChat article, not the fact table, summary, or a shortened rewrite
+- WeChat HTML includes Full Article Rendering Plan and Text Preservation Check
 - WeChat HTML includes an internal frontend design pass before any HTML
 - WeChat HTML includes Component Blueprint, Frontend Design Capability Mapping, and WeChat Compatibility Translation
 - multi-style WeChat HTML outputs differ in structure, motif, and component system, not only in colors or labels

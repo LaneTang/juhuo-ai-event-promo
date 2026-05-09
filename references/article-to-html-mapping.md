@@ -1,77 +1,85 @@
-# Article To HTML Mapping
+# Full Article HTML Rendering
 
 Use this reference for every v2 WeChat HTML task.
 
-Core rule: the complete generated WeChat article is the only content source for v2 HTML. The fact table remains the truth source for checking facts, but it must not be used to replace, compress, or rewrite the article during HTML generation.
+Core rule: v2 HTML must render the complete generated WeChat article. The HTML task is layout and visual treatment, not rewriting, summarizing, or reselecting content.
 
-## Required Mapping Step
+The fact table remains the truth source for checking facts, but once WeChat copy exists, the WeChat article is the sole body-content source for HTML.
 
-Before writing HTML, break the approved WeChat article into article units.
+## Non-Negotiable Text Preservation
 
-Article units usually include:
+Every substantive text unit from the approved WeChat article must appear in the HTML.
 
-- title and subtitle/opening line
-- hook questions or opening scene
--导语 paragraphs
-- golden sentence
-- numbered sections
-- participant invitation paragraphs
-- rules/checklist paragraphs
-- agenda paragraphs with explanations
-- time/location/registration block
+Substantive units include:
+
+- title
+- subtitle/opening visual line if present
+- every heading
+- every paragraph
+- every list item
+- golden sentence / highlighted sentence
+- participant category names and descriptions
+- rules/checklist items
+- agenda items and their explanations
+- time/location/registration information
 - closing invitation
-- QR placeholder
+- QR or link placeholder
 
-Then map each unit to an HTML component.
+Allowed:
 
-Use this format:
+- Wrap text in styled `section`, `p`, `span`, `strong`, or similar HTML elements.
+- Split a long paragraph into smaller visual lines if all words remain.
+- Promote an existing sentence into a highlight block.
+- Add small decorative labels such as `INVITATION`, `BUILD LOG`, or `FIELD NOTE`.
+- Add section wrappers, dividers, labels, callouts, and visual hierarchy.
+
+Not allowed:
+
+- Delete substantive text.
+- Summarize paragraphs.
+- Rewrite the article in shorter wording.
+- Replace paragraphs with fact-table bullets.
+- Collapse participant descriptions into one-line labels.
+- Keep agenda times but remove agenda explanations.
+- Drop the opening hook, background, rules, closing invitation, or placeholders.
+- Use "major unit coverage" as permission to omit smaller paragraphs.
+
+## Required Rendering Step
+
+Before writing HTML, split the approved WeChat article into text units and render all of them.
+
+Use this output format:
 
 ```markdown
-## Article-to-HTML Mapping
+## Full Article Rendering Plan
 
-| Article unit | Source content summary | HTML component | Keep / Merge / Omit |
-|---|---|---|---|
-| Title | ... | first screen title block | Keep |
-| Opening hook | ... | intro letter block | Keep |
+The HTML will render the complete approved WeChat article without summarizing or omitting substantive text.
+
+| Source text unit | HTML treatment |
+|---|---|
+| Title | First screen title block |
+| Opening paragraph 1 | Intro letter paragraph |
+| Rule item 1 | Checklist row |
 ```
 
-## Article Coverage Check
+## Text Preservation Check
 
-- Source article units: N
-- HTML-covered units: N
-- Omitted units: 0 or list with reason
-- Coverage result: PASS / FAIL
+- Source text units: N
+- Rendered text units: N
+- Omitted substantive units: 0
+- Rewritten/summarized units: 0
+- Result: PASS
 ```
 
-## Coverage Requirements
+If `Omitted substantive units` or `Rewritten/summarized units` is not 0, the HTML fails.
 
-Default requirement:
+## Design Relationship
 
-- Cover all major article units.
-- Omit no section unless it is duplicated, unsafe, or explicitly excluded by the user.
-- Do not compress a mature article into an event-info page.
-- Do not reduce participant invitation paragraphs into one-line labels.
-- Do not reduce agenda explanations into only time labels.
+Apply visual design around the article, not instead of the article.
 
-Hard fail:
-
-- HTML drops the opening hook/scene.
-- HTML drops activity background or value explanation.
-- HTML drops participant invitation detail.
-- HTML drops rules/participation notes when the article has them.
-- HTML drops agenda explanations and keeps only times.
-- HTML keeps less than about 80% of the article's substantive units.
-- HTML reads like it was generated from the fact table instead of the approved article.
-
-## How To Preserve Long Articles
-
-If the article is long, preserve it through layout rather than summarizing:
-
-- Use collapsible-like visual grouping without actual interaction: section bands, note blocks, timeline rows.
-- Keep paragraph text real and visible.
-- Merge only adjacent paragraphs that repeat the same point.
-- Use visual hierarchy to make long text readable; do not delete the text.
-- Use section rhythm, callouts, labels, and spacing to support scanning.
+- Component blueprints decide how to wrap and emphasize text.
+- Frontend-design principles decide hierarchy, rhythm, and visual concept.
+- They must not be used to shorten the article.
 
 ## Relationship To Fact Table
 
@@ -82,4 +90,4 @@ Use the fact table only to:
 - avoid unsupported claims
 - check consistency across channels
 
-Do not use the fact table as the content source for HTML once WeChat copy exists.
+Do not use the fact table as the body-content source for HTML once WeChat copy exists.

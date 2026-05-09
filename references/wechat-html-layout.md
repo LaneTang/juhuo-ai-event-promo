@@ -12,9 +12,9 @@ Generate static WeChat-compatible HTML that still looks good after animations an
 
 Before writing HTML, apply the full internal frontend-design flow from `references/frontend-design-core.md`, then translate it through `references/wechat-frontend-design.md` and the selected component blueprint from `references/wechat-component-blueprints.md`. Do not depend on an external `frontend-design` skill being installed.
 
-Use the complete WeChat article as source material. Do not base HTML on a compressed summary, fact table, or shortened rewrite.
+Use the complete WeChat article as source material. The HTML must render the complete article. Do not base HTML on a compressed summary, fact table, shortened rewrite, or selected excerpt.
 
-Before design and HTML, produce `Article-to-HTML Mapping` and `Article Coverage Check` from `references/article-to-html-mapping.md`. If major article units are missing from the HTML, fail the coverage check and revise before delivery.
+Before design and HTML, produce `Full Article Rendering Plan` and `Text Preservation Check` from `references/article-to-html-mapping.md`. If any substantive text unit is missing, rewritten, or summarized, fail the preservation check and revise before delivery.
 
 The design pass must decide:
 
@@ -57,13 +57,13 @@ When generating v2 HTML, output:
 
 Purpose, audience, tone, bold aesthetic direction, differentiation, memorable motif, information hierarchy, component system, and compatibility translation.
 
-## Article-to-HTML Mapping
+## Full Article Rendering Plan
 
-Each major WeChat article unit mapped to a concrete HTML component.
+How the complete approved WeChat article will be rendered into styled HTML components without shortening the text.
 
-## Article Coverage Check
+## Text Preservation Check
 
-Source article units, covered units, omitted units with reasons, and PASS/FAIL.
+Source text units, rendered text units, omitted substantive units, rewritten/summarized units, and PASS/FAIL.
 
 ## Component Blueprint
 
@@ -295,9 +295,11 @@ Use a strong first viewport signal. The title must be readable on mobile.
 Before delivering HTML, verify:
 
 - A Frontend Design Plan is present before the HTML.
-- The HTML is based on complete WeChat article copy, not a short summary.
-- Article-to-HTML Mapping is present before the HTML.
-- Article Coverage Check is present before the HTML and passes.
+- The HTML renders the complete WeChat article copy, not a short summary.
+- Full Article Rendering Plan is present before the HTML.
+- Text Preservation Check is present before the HTML and passes.
+- Omitted substantive units count is 0.
+- Rewritten/summarized units count is 0.
 - A Component Blueprint is present before the HTML.
 - Frontend Design Capability Mapping is present before the HTML.
 - WeChat Compatibility Translation is present before the HTML.

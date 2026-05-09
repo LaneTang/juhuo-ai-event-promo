@@ -6,7 +6,9 @@ The purpose is to prevent three style versions from becoming the same skeleton w
 
 ## Shared Rule
 
-All HTML must be based on the complete WeChat article copy, not a compressed summary. Preserve important paragraphs, section rhythm, agenda explanations, participant invitations, and CTA.
+All HTML must render the complete WeChat article copy, not a compressed summary. Component blueprints wrap and emphasize the article; they must not replace, shorten, or rewrite it.
+
+Every substantive heading, paragraph, list item, agenda explanation, participant invitation, CTA, and placeholder from the WeChat article must remain visible in the HTML.
 
 For each style version, output:
 

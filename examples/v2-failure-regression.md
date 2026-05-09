@@ -62,10 +62,10 @@ Expected gates:
 A passing output must:
 
 - generate a full WeChat article from `wechat-golden-copy-style.md`
-- use that full article as the HTML source
+- render that full article in HTML without omitting, rewriting, or summarizing substantive text
 - produce a `Frontend Design Plan`
-- produce `Article-to-HTML Mapping`
-- produce `Article Coverage Check`
+- produce `Full Article Rendering Plan`
+- produce `Text Preservation Check`
 - select and follow a `Component Blueprint`
 - provide `Frontend Design Capability Mapping`
 - provide `WeChat Compatibility Translation`
@@ -80,11 +80,13 @@ Observed symptom:
 
 Expected gates:
 
-- `Article coverage passed` should fail.
-- `Missing article mapping` should fail.
+- `Full article rendered` should fail.
+- `Missing full article rendering plan` should fail.
+- `Text preservation failed` should fail.
 - `Compressed source copy` should fail.
 
 Correct behavior:
 
-- HTML must preserve the article's hook questions,导语 paragraphs, background explanation, participant details, rule notes, agenda explanations, and closing invitation.
+- HTML must display the full article's hook questions,导语 paragraphs, background explanation, participant details, rule notes, agenda explanations, and closing invitation.
+- HTML may add design wrappers, but may not delete, summarize, or rewrite substantive article text.
 - The fact table may verify facts, but must not become the HTML content source after WeChat copy exists.
