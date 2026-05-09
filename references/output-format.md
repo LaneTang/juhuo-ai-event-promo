@@ -71,7 +71,15 @@ Include copy and HTML compatibility gates.
 
 ## Frontend Design Pass
 
-Purpose, audience, tone, aesthetic direction, hierarchy, memorable motif, and component system. This pass must happen before HTML generation.
+Purpose, audience, tone, bold aesthetic direction, differentiation, memorable motif, information hierarchy, component system, and compatibility translation. This internal WeChat frontend design pass must happen before HTML generation.
+
+## Frontend Design Capability Mapping
+
+Map purpose, tone, bold aesthetic direction, differentiation, typography, color/theme, spatial composition, background/visual details, and polish into concrete WeChat-safe design decisions.
+
+## Compatibility Downgrade Notes
+
+Explain how richer frontend ideas such as motion, hover states, external fonts, complex backgrounds, pseudo-elements, SVG/icons, fixed layout, or remote assets are translated into static inline HTML.
 
 ## WeChat HTML Style Choice
 
@@ -88,7 +96,7 @@ Chosen style family and why.
 Static, inline-style based, no JS/animation/external CSS. List QR placeholders or facts that still need confirmation.
 ````
 
-For multi-style HTML comparison, repeat `Frontend Design Pass`, `WeChat HTML Style Choice`, `微信公众号 HTML`, and `Copy/Paste Notes` for each style version, then add:
+For multi-style HTML comparison, repeat `Frontend Design Pass`, `Frontend Design Capability Mapping`, `Compatibility Downgrade Notes`, `WeChat HTML Style Choice`, `微信公众号 HTML`, and `Copy/Paste Notes` for each style version, then add:
 
 ```markdown
 ## Style Difference Summary

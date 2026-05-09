@@ -36,7 +36,9 @@ Supported when explicitly requested:
 
 - WeChat HTML layout
 
-The WeChat HTML layout module requires the `frontend-design` skill and a frontend-design pass before HTML generation. It should first define the article's purpose, audience, aesthetic direction, hierarchy, memorable visual motif, and component system, then translate that design into static WeChat-compatible inline HTML. If `frontend-design` is unavailable, v2 HTML generation should stop and report a blocker.
+The WeChat HTML layout module includes an internal frontend-design-like design engine in `references/wechat-frontend-design.md`. It does not depend on an external `frontend-design` skill being installed or explicitly invoked.
+
+Before HTML generation, v2 must define the article's purpose, audience, bold aesthetic direction, differentiation, hierarchy, memorable visual motif, and component system. It must also output a `Frontend Design Capability Mapping` and `Compatibility Downgrade Notes`, then translate the design into static WeChat-compatible inline HTML.
 
 When multiple HTML styles are requested for comparison, the versions must differ structurally, not just by palette. The style-drift gate checks the first screen, heading system, highlighted sentence, audience blocks, rules/checklist, agenda/timeline, info block, closing CTA, and QR placeholder treatment.
 
@@ -178,6 +180,8 @@ For a full package, Codex should output:
 When explicitly asked for WeChat HTML layout, Codex should also output:
 
 - Frontend Design Pass
+- Frontend Design Capability Mapping
+- Compatibility Downgrade Notes
 - WeChat HTML Style Choice
 - 微信公众号 HTML
 - Copy/Paste Notes
@@ -195,7 +199,8 @@ When testing this skill in a fresh Codex project, verify that:
 - missing registration links become placeholders or confirmation items
 - internal details are not leaked into public copy
 - QQ is treated as a Xiaohongshu reuse channel by default
-- WeChat HTML includes a frontend-design pass before any HTML
+- WeChat HTML includes an internal frontend design pass before any HTML
+- WeChat HTML includes Frontend Design Capability Mapping and Compatibility Downgrade Notes
 - multi-style WeChat HTML outputs differ in structure, motif, and component system, not only in colors or labels
 - WeChat HTML, when requested, is static, inline-style based, and does not rely on JS/animation/external CSS
 

@@ -39,7 +39,7 @@ If the user provides previous Juhuo posts or published drafts, use them as style
    - WeChat: `references/wechat-copy-style.md`
    - Xiaohongshu and QQ reuse: `references/xiaohongshu-copy-style.md`
    - WeChat HTML layout: `references/wechat-html-layout.md`
-     - When generating WeChat HTML, also apply the `frontend-design` skill's design principles before writing HTML.
+     - When generating WeChat HTML, also read `references/wechat-frontend-design.md` before writing HTML.
 8. Read `references/output-format.md`.
 9. Generate the requested package.
 10. Run a final consistency pass across all outputs:
@@ -83,9 +83,11 @@ Rules:
 
 - Base the HTML on fact-checked WeChat copy.
 - Read `references/wechat-html-layout.md`.
-- Use the `frontend-design` skill if it is available. If it is not available in the current Codex environment, report this as a v2 blocker instead of generating WeChat HTML.
-- Before writing HTML, perform a frontend-design pass: define purpose, audience, tone, aesthetic direction, hierarchy, memorable visual motif, and component system.
-- Translate the frontend-design pass into WeChat-compatible static HTML. Keep the design ambition, but remove incompatible implementation techniques.
+- Read `references/wechat-frontend-design.md`.
+- Before writing HTML, perform the internal WeChat frontend design pass: define purpose, audience, tone, bold aesthetic direction, differentiation, memorable motif, information hierarchy, component system, and compatibility translation.
+- Output a `Frontend Design Capability Mapping` that translates frontend-design capabilities into WeChat-safe decisions.
+- Output `Compatibility Downgrade Notes` that explain how richer frontend ideas such as motion, hover states, external fonts, complex backgrounds, pseudo-elements, or assets become static inline HTML.
+- Translate the design pass into WeChat-compatible static HTML. Keep the design ambition, but remove incompatible implementation techniques.
 - Choose a style family from that reference unless the user specifies one.
 - When generating multiple HTML style versions, make the versions structurally distinct. Do not deliver three outputs that only change palette, border colors, headings, or label text.
 - For multi-style HTML output, run the style-drift gate: compare first screen, heading system, highlighted sentence, audience blocks, rules/checklist, agenda/timeline, info block, closing CTA, and QR placeholder treatment. If those areas are mostly identical, redesign before delivering.

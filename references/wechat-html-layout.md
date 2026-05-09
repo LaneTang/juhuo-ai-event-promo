@@ -4,11 +4,13 @@ Use this reference when the user explicitly asks for WeChat Official Account HTM
 
 This is a v2 downstream module. Do not use it before the event facts and WeChat copy have passed quality gates.
 
+Required companion reference: read `references/wechat-frontend-design.md` before writing any HTML.
+
 ## Core Rule
 
 Generate static WeChat-compatible HTML that still looks good after animations and scripts are stripped.
 
-Before writing HTML, apply the `frontend-design` skill's design principles as a design pass. If `frontend-design` is not available in the current Codex environment, report a v2 blocker instead of generating WeChat HTML.
+Before writing HTML, apply the internal WeChat frontend design pass from `references/wechat-frontend-design.md`. Do not depend on an external `frontend-design` skill being installed.
 
 The design pass must decide:
 
@@ -18,6 +20,7 @@ The design pass must decide:
 - hierarchy: what appears first, what becomes a highlight, what becomes supporting detail
 - memorable motif: the one visual idea readers should remember
 - component system: title block, quote/highlight, section heading, cards, checklist, timeline, info block, QR placeholder, closing CTA
+- compatibility translation: how the design becomes static inline HTML without unsupported frontend techniques
 
 Then translate that design pass into WeChat-compatible static HTML. Keep the visual intent, but discard incompatible frontend techniques.
 
@@ -48,7 +51,15 @@ When generating v2 HTML, output:
 ````markdown
 ## Frontend Design Pass
 
-Purpose, audience, tone, aesthetic direction, hierarchy, memorable motif, and component system.
+Purpose, audience, tone, bold aesthetic direction, differentiation, memorable motif, information hierarchy, component system, and compatibility translation.
+
+## Frontend Design Capability Mapping
+
+How frontend-design capabilities are translated into WeChat-safe decisions.
+
+## Compatibility Downgrade Notes
+
+How richer frontend ideas are reduced to static inline HTML without losing the visual concept.
 
 ## WeChat HTML Style Choice
 
@@ -268,6 +279,8 @@ Use a strong first viewport signal. The title must be readable on mobile.
 Before delivering HTML, verify:
 
 - A frontend-design pass is present before the HTML.
+- Frontend Design Capability Mapping is present before the HTML.
+- Compatibility Downgrade Notes are present before the HTML.
 - The design pass names a specific visual concept beyond the selected style family.
 - The HTML reflects the design pass through hierarchy, spacing, recurring motifs, and component choices.
 - For multi-style output, each version has a different motif and component system, not just different colors.
