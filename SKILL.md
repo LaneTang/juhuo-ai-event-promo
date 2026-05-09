@@ -17,7 +17,9 @@ v1 output focuses on mature, publishable copywriting:
 
 v2 supports WeChat Official Account HTML layout as an explicit downstream task.
 
-Do not generate WeChat HTML, posters, cover images, or image assets by default. If the user explicitly requests those assets, treat them as separate downstream tasks after the copy package is fact-checked.
+v3 supports visual material prompts as an explicit downstream task.
+
+Do not generate WeChat HTML, posters, cover images, or image assets by default. If the user explicitly requests those assets, treat them as separate downstream tasks after the copy package is fact-checked. For v3, output image-generation prompts first and ask for confirmation before generating images.
 
 ## Core Rule
 
@@ -40,6 +42,7 @@ If the user provides previous Juhuo posts or published drafts, use them as style
    - Xiaohongshu and QQ reuse: `references/xiaohongshu-copy-style.md`
    - WeChat HTML layout: `references/wechat-html-layout.md`
      - When generating WeChat HTML, also read `references/article-to-html-mapping.md`, `references/frontend-design-core.md`, `references/wechat-frontend-design.md`, and `references/wechat-component-blueprints.md` before writing HTML.
+   - Visual prompts / covers / posters: `references/visual-prompt-style.md`
 8. Read `references/output-format.md`.
 9. Generate the requested package.
 10. Run a final consistency pass across all outputs:
@@ -115,6 +118,19 @@ Rules:
 - Do not output a generic template. The HTML should show intentional typography hierarchy, spacing rhythm, color discipline, section contrast, and a recognizable visual point of view.
 - Keep the HTML static, mostly inline-style, and WeChat-compatible.
 - Do not use JavaScript, animation, external CSS, or remote assets.
+
+## Visual Prompt Behavior
+
+Only generate visual prompts when the user explicitly asks for cover images, posters, social media visuals, image prompts, visual materials, or v3 outputs.
+
+Rules:
+
+- Read `references/visual-prompt-style.md`.
+- Base prompts on the fact-checked promotion package, not raw assumptions.
+- Output prompts for requested platforms. If the user asks for a full visual package, output WeChat Cover Prompt and Xiaohongshu Poster Prompt.
+- QQ Channel, QQ group, and QQ campus wall reuse WeChat or Xiaohongshu visuals by default; do not create separate QQ prompts unless explicitly requested.
+- Do not call image generation immediately. Ask for confirmation after presenting prompts.
+- If the user confirms a specific prompt, then image generation can be used as a separate action.
 
 ## Writing Principles
 

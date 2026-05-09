@@ -1,0 +1,47 @@
+# Sample Visual Prompts
+
+This sample demonstrates v3 prompt-only output for a Juhuo AI event. It should not trigger image generation until the user confirms one prompt.
+
+## Visual Prompt Fact Check
+
+- Event: 炬火 AI 实践月｜“AI×”分享会#1 大创专题暨模拟路演
+- Theme: AI 从工具体验走向真实项目实践
+- Time: 2026 年 5 月 10 日 14:00-17:00
+- Location: 以报名群通知为准
+- Organizer: 炬火 AI 研究协会
+- Missing: final QR/link
+
+Do not show a specific venue or QR code as confirmed.
+
+## WeChat Cover Prompt
+
+**Use case:** WeChat Official Account cover image
+**Aspect ratio:** 2.35:1 horizontal
+**Main text:** 炬火 AI 实践月启动
+**Secondary text:** 从一个想法，到一个作品
+**Visual direction:** campus AI community invitation, warm but capable, project practice atmosphere
+**Composition:** horizontal cover, central bold title, small date strip "05.10 / 14:00-17:00", background showing abstract students around a project table, subtle AI interface fragments, no real faces
+**Color palette:** light blue, warm yellow, ink black, clean white
+**Style details:** hand-made tech invitation feel, marker highlight, paper note textures, clear title hierarchy, polished WeChat cover
+**Negative prompt / avoid:** no QR code, no exact venue, no corporate SaaS dashboard, no cold conference stage, no dense text, no fake sponsor logos
+
+## Xiaohongshu Poster Prompt
+
+**Use case:** Xiaohongshu vertical poster
+**Aspect ratio:** 4:5 vertical
+**Main text:** AI 怎么从工具箱变成实战项目？
+**Secondary text:** 炬火 AI 实践月｜AI×分享会#1
+**Info text:** 05.10 14:00-17:00｜地点以报名群通知为准
+**Visual direction:** energetic campus community poster, friendly senior-student invitation, maker workshop energy
+**Composition:** vertical poster, large question headline at top, mid-frame project table / notes / laptop / sticky labels, bottom info band for time and registration placeholder text
+**Color palette:** light blue, ink black, warm yellow
+**Style details:** youthful campus club poster, hand labels, checklist marks, subtle tech grid, readable mobile text
+**Negative prompt / avoid:** no long agenda, no fake QR code, no exact venue, no celebrity/guest portrait, no overly commercial startup pitch style
+
+## QQ Material Reuse Note
+
+QQ Channel, QQ groups, and QQ campus wall reuse the WeChat cover or Xiaohongshu poster. Default recommendation: use the Xiaohongshu poster for QQ campus wall and group forwarding because it contains more event info.
+
+## Image Generation Confirmation
+
+如果你确认，我可以基于其中某一条 prompt 继续生成图片。默认建议先生成小红书海报，因为它也可复用于 QQ 渠道。
