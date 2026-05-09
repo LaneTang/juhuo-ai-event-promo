@@ -1,6 +1,7 @@
 # juhuo-ai-event-promo
 
-> 输入一份活动策划案，生成微信公众号、小红书、QQ 渠道与视觉物料组成的炬火 AI 社媒矩阵宣传包。
+> **输入一份活动策划案，只需要一句话，生成全套的炬火 AI 社媒矩阵宣传包。**
+> **Upload an event plan and get a complete Juhuo AI social media promotion package with just one sentence.**
 
 `juhuo-ai-event-promo` is a reusable agent workflow for turning a Juhuo AI event plan into a fact-checked, publication-ready campus promotion package.
 
